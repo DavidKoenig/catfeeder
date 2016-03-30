@@ -19,7 +19,7 @@ class SettingsController extends Controller
      */
     public function settingsAction(Request $request)
     {
-        return $this->render('default/settings.html.twig', [
+        return $this->render('app/settings.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
         ]);
     }
