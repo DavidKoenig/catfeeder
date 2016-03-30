@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Raspberry Pi Cat Feeder{% endblock %}</title>
+        {% stylesheets '@bootstrap_css' '@main_css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('index') }}">RPCF</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="{% if app.request.attributes.get('_route') == 'feed' %}active{% endif %}"><a href="{{ path('feed') }}">Feed</a></li>
+                        <li class="{% if app.request.attributes.get('_route') == 'settings' %}active{% endif %}"><a href="{{ path('settings') }}">Settings</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group hide">
+                            <input type="text" class="form-control" placeholder="username">
+                            <input type="text" class="form-control" placeholder="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary hide">Login</button>
+                        <button type="submit" class="btn btn-default">Logout</button>
+                    </form>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+            {% javascripts '@jquery' '@bootstrap_js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
