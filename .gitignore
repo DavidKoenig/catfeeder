@@ -15,4 +15,6 @@
 /vendor/
 /web/bundles/
 .vagrant/
+/puphpet/
 .idea/
+
