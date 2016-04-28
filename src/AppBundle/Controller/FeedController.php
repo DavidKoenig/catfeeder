@@ -19,8 +19,6 @@ class FeedController extends Controller
      */
     public function feedAction(Request $request)
     {
-        return $this->render('app/feed.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        ]);
+        return $this->render('AppBundle::feed.html.twig');
     }
 }

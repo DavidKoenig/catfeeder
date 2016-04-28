@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h3>Settings</h3>
+    <form>
+        <h4>Duration</h4>
+        <div class="row">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+                <label for="durationPortion">Duration for one Portion
+                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
+                          title="Duration in seconds the feeder should put out for one Portion."></span>
+                </label>
+                <input type="number" min="0.01" max="10.00" step="0.01" class="form-control" id="durationPortion" placeholder="0.xx, 1.xx, etc. possible">
+            </div>
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+                <label for="durationLightBarrier">Duration for Training Hole
+                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
+                          title="Duration in seconds the feeder should put out for one item in the training hole."></span>
+                </label>
+                <input type="number" min="0.01" max="10.00" step="0.01" class="form-control" id="durationLightBarrier" placeholder="0.xx, 1.xx, etc. possible">
+            </div>
+        </div>
+        <h4>Training Hole</h4>
+        <div class="row">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+                <div>
+                    <label>Training Hole On/Off
+                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
+                          title="Should the training hole with the light barrier in it be on or off?"></span>
+                    </label>
+                </div>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="radio" name="lightBarrier" id="lightBarrierOn" autocomplete="off"> On
+                    </label>
+                    <label class="btn btn-default active">
+                        <input type="radio" name="lightBarrier" id="lightBarrierOff" autocomplete="off" checked> Off
+                    </label>
+                </div>
+            </div>
+        </div>
+        <h4>Wireless Power Plug</h4>
+        <div class="row">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+                <label for="channelCode">Channel/ System Code
+                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
+                          title="Channel respectively system code of the wireless plug socket."></span>
+                </label>
+                <input type="number" min="1" max="5" step="1" class="form-control" id="channelCode" placeholder="1 to 5 possible">
+            </div>
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+                <label for="unitCode">Unit Code
+                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
+                          title="Unit code of the wireless plug socket. (If your wireless power plug has an unit code from A to E, map the letters to 1 to 5"></span>
+                </label>
+                <input type="number" min="1" max="5" step="1" class="form-control" id="unitCode" placeholder="1 to 5 possible">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-warning">Cancel</button>
+    </form>
+{% endblock content %}
