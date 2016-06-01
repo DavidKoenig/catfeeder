@@ -18,3 +18,8 @@
 /puphpet/
 .idea/
 
+# production stuff
+web/assetic/
+web/css/
+web/fonts/
+web/js/

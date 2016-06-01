@@ -24,28 +24,27 @@ export SYMFONY_ENV=$1
 printf "Pulling master branch...\n"
 git pull origin master
 
-
 ## Composer install
-if [ -e "composer.phar" ] && [ $1 = "prod" ]
+if [ $1 = "prod" ]
     then
+        # composer install takes care of cache cleaning
         printf "\n\nComposer install...\n"
-        php composer.phar install --no-dev
+        composer install --no-dev
+
+        printf "\n\Dump assetic...\n"
+        php bin/console assetic:dump --env=prod --no-debug
     else
-        php composer.phar install
+        printf "\n\nUpdateting database...\n"
+        php bin/console doctrine:schema:update --force
+
+        # composer install takes care of cache cleaning
+        printf "\n\nComposer install...\n"
+        composer install
+        printf "\n\nClearing development cache...\n"
 fi
 
-
-## Clear production cache
-printf "\n\nClearing production cache...\n"
-php bin/console cache:clear --env=prod
-
-## Dump out new class map
-if [ -e "composer.phar" ]
-    then
-        printf "\n\nBuilding new optimized class map...\n"
-        php composer.phar dump-autoload --optimize
-fi
-
+printf "\n\nBuilding new optimized class map...\n"
+composer dump-autoload --optimize
 
 ## Success message
 printf "\n\nSuccessfully deployed new version!\n"
