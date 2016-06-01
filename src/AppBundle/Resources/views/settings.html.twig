@@ -1,62 +1,66 @@
 {% extends "base.html.twig" %}
+{% form_theme form '::form-style.html.twig' %}
 
 {% block content %}
     <h3>Settings</h3>
-    <form>
+    {% if isFormSaved == true %}
+        <div class="row">
+            <div class="col-xs-12 cold-sm-6 col-md-3">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        Settings saved successfully
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {{ form_start(form) }}
         <h4>Duration</h4>
         <div class="row">
-            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3 {% if not form.durationPortion.vars.valid %}has-error{% endif %}">
                 <label for="durationPortion">Duration for one Portion
-                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
-                          title="Duration in seconds the feeder should put out for one Portion."></span>
+                    <span class="glyphicon glyphicon-info-sign info has-feedback" data-toggle="tooltip" data-placement="right"
+                          title="Duration in seconds the feeder should put out for one Portion. 0.xx, 1.xx, etc. possible."></span>
                 </label>
-                <input type="number" min="0.01" max="10.00" step="0.01" class="form-control" id="durationPortion" placeholder="0.xx, 1.xx, etc. possible">
+                {{ form_row(form.durationPortion) }}
             </div>
-            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3 {% if not form.durationLightBarrier.vars.valid %}has-error{% endif %}">
                 <label for="durationLightBarrier">Duration for Training Hole
-                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
-                          title="Duration in seconds the feeder should put out for one item in the training hole."></span>
+                    <span class="glyphicon glyphicon-info-sign info has-feedback" data-toggle="tooltip" data-placement="right"
+                          title="Duration in seconds the feeder should put out for one item in the training hole. 0.xx, 1.xx, etc. possible."></span>
                 </label>
-                <input type="number" min="0.01" max="10.00" step="0.01" class="form-control" id="durationLightBarrier" placeholder="0.xx, 1.xx, etc. possible">
+                {{ form_row(form.durationLightBarrier) }}
             </div>
         </div>
         <h4>Training Hole</h4>
         <div class="row">
-            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
-                <div>
-                    <label>Training Hole On/Off
-                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
-                          title="Should the training hole with the light barrier in it be on or off?"></span>
-                    </label>
-                </div>
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default">
-                        <input type="radio" name="lightBarrier" id="lightBarrierOn" autocomplete="off"> On
-                    </label>
-                    <label class="btn btn-default active">
-                        <input type="radio" name="lightBarrier" id="lightBarrierOff" autocomplete="off" checked> Off
-                    </label>
-                </div>
+            <div class="form-inline col-xs-12 cold-sm-6 col-md-3 {% if not form.isLightBarrierActive.vars.valid %}has-error{% endif %}">
+                <label>
+                    {{ form_row(form.isLightBarrierActive) }}
+                    <span class="inline-label">Training Hole On/Off</span>
+                    <span class="glyphicon glyphicon-info-sign info has-feedback" style="padding-top: 15px !important;" data-toggle="tooltip" data-placement="right"
+                          title="Should the training hole with the light barrier in it be on or off? Check for on."></span>
+                </label>
             </div>
         </div>
         <h4>Wireless Power Plug</h4>
         <div class="row">
-            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3 {% if not form.wirelessPlugSocket.channelCode.vars.valid %}has-error{% endif %}">
                 <label for="channelCode">Channel/ System Code
-                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
-                          title="Channel respectively system code of the wireless plug socket."></span>
+                    <span class="glyphicon glyphicon-info-sign info has-feedback" data-toggle="tooltip" data-placement="right"
+                          title="Channel respectively system code of the wireless plug socket. 1 to 5 possible."></span>
                 </label>
-                <input type="number" min="1" max="5" step="1" class="form-control" id="channelCode" placeholder="1 to 5 possible">
+                {{ form_row(form.wirelessPlugSocket.channelCode) }}
             </div>
-            <div class="form-group col-xs-12 cold-sm-6 col-md-3">
+            <div class="form-group col-xs-12 cold-sm-6 col-md-3 {% if not form.wirelessPlugSocket.unitCode.vars.valid %}has-error{% endif %}">
                 <label for="unitCode">Unit Code
-                    <span class="glyphicon glyphicon-info-sign info" data-toggle="tooltip" data-placement="right"
-                          title="Unit code of the wireless plug socket. (If your wireless power plug has an unit code from A to E, map the letters to 1 to 5"></span>
+                    <span class="glyphicon glyphicon-info-sign info has-feedback" data-toggle="tooltip" data-placement="right"
+                          title="Unit code of the wireless plug socket. 1 to 5 possible (If your wireless power plug has an unit code from A to E, map the letters to 1 to 5)"></span>
                 </label>
-                <input type="number" min="1" max="5" step="1" class="form-control" id="unitCode" placeholder="1 to 5 possible">
+                {{ form_row(form.wirelessPlugSocket.unitCode) }}
             </div>
         </div>
         <button type="submit" class="btn btn-success">Save</button>
-        <button type="submit" class="btn btn-warning">Cancel</button>
-    </form>
+        <button type="reset" class="btn btn-warning">Cancel</button>
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock content %}

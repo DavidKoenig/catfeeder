@@ -16,6 +16,7 @@ class FeedController extends Controller
 {
     /**
      * @Route("/feed", name="feed")
+     * @Route ("/", name="home_feed")
      */
     public function feedAction(Request $request)
     {

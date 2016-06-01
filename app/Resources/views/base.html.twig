@@ -25,7 +25,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="{% if app.request.attributes.get('_route') == 'feed' %}active{% endif %}"><a href="{{ path('feed') }}">Feed</a></li>
+                        <li class="{% if app.request.attributes.get('_route') == 'feed' or app.request.attributes.get('_route') == 'home_feed' %}active{% endif %}"><a href="{{ path('feed') }}">Feed</a></li>
                         <li class="{% if app.request.attributes.get('_route') == 'settings' %}active{% endif %}"><a href="{{ path('settings') }}">Settings</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
