@@ -35,6 +35,12 @@ class SettingsController extends Controller
             $em->persist($settings);
             $em->flush();
             $isFormSaved = true;
+            // execute script
+//            $command = escapeshellcmd('../../../../app/Resources/py/feed.py');
+            $command = escapeshellcmd('python var/www/html/cat-feeder/app/Resources/py/feed.py ' + $settings->getWirelessPlugSocket()->getChannelCode() + ' ' +
+                                      $settings->getWirelessPlugSocket()->getUnitCode() + ' ' + $settings->getDurationPortion());
+            $output = shell_exec($command);
+            dump($output);
         }
 
         return $this->render('AppBundle::settings.html.twig', array(

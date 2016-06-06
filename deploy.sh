@@ -40,7 +40,6 @@ if [ $1 = "prod" ]
         # composer install takes care of cache cleaning
         printf "\n\nComposer install...\n"
         composer install
-        printf "\n\nClearing development cache...\n"
 fi
 
 printf "\n\nBuilding new optimized class map...\n"
