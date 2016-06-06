@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import time
 import subprocess
 import RPi.GPIO as GPIO
