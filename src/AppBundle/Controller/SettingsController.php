@@ -37,10 +37,15 @@ class SettingsController extends Controller
             $isFormSaved = true;
             // execute script
 //            $command = escapeshellcmd('../../../../app/Resources/py/feed.py');
-            $command = escapeshellcmd('python var/www/html/cat-feeder/app/Resources/py/feed.py ' + $settings->getWirelessPlugSocket()->getChannelCode() + ' ' +
-                                      $settings->getWirelessPlugSocket()->getUnitCode() + ' ' + $settings->getDurationPortion());
-            $output = shell_exec($command);
+            $command2 = trim('python /var/www/html/cat-feeder/app/Resources/py/feed.py ' . $settings->getWirelessPlugSocket()->getChannelCode() . ' ' .
+                                      $settings->getWirelessPlugSocket()->getUnitCode() . ' ' . $settings->getDurationPortion());
+dump($command2);       
+$output2 = null;
+$returnVar = null;    
+$output = exec($command2, $output2, $returnVar);
             dump($output);
+dump($output2);
+dump($returnVar);
         }
 
         return $this->render('AppBundle::settings.html.twig', array(
