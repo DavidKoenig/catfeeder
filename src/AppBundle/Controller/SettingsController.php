@@ -39,9 +39,9 @@ class SettingsController extends Controller
 //            $command = escapeshellcmd('../../../../app/Resources/py/feed.py');
             $command2 = trim('python /var/www/html/cat-feeder/app/Resources/py/feed.py ' . $settings->getWirelessPlugSocket()->getChannelCode() . ' ' .
                                       $settings->getWirelessPlugSocket()->getUnitCode() . ' ' . $settings->getDurationPortion());
-dump($command2);       
+dump($command2);
 $output2 = null;
-$returnVar = null;    
+$returnVar = null;
 $output = exec($command2, $output2, $returnVar);
             dump($output);
 dump($output2);
