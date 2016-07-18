@@ -41,7 +41,7 @@ class FeedController extends Controller
             $port = 11337;
 
             // Make sure it's a string, because of possible leading zeros.
-            $nGroup = (string) $settings->getWirelessPlugSocket()->getChannelCode();
+            $nGroup = $settings->getWirelessPlugSocket()->getChannelCode();
             $nSwitch =  '0' . $settings->getWirelessPlugSocket()->getUnitCode();
             $nAction = '1';
 

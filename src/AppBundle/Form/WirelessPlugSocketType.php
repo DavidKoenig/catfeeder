@@ -22,8 +22,8 @@ class WirelessPlugSocketType extends AbstractType
             ->add('name', TextType::class, array(
                 'required' => false
             ))
-            ->add('channelCode', IntegerType::class)
-            ->add('unitCode', IntegerType::class)
+            ->add('channelCode', TextType::class)
+            ->add('unitCode', TextType::class)
         ;
     }
 

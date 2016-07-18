@@ -31,16 +31,16 @@ class WirelessPlugSocket
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank()
-     * @Assert\Type(type="integer")
+     * @Assert\Type(type="string")
      */
     private $channelCode;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank()
-     * @Assert\Type(type="integer")
+     * @Assert\Type(type="string")
      */
     private $unitCode;
 
