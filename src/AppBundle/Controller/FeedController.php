@@ -63,6 +63,10 @@ class FeedController extends Controller
             socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
             socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
             socket_close($socket);
+
+            sleep(1);
+
+	    exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh', $outputScript, $returnVal);
         }
 
         return $this->render('AppBundle::feed.html.twig', array(

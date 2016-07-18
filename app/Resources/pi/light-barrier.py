@@ -15,10 +15,10 @@ GPIO.setup(12, GPIO.IN)
 
 while 1:
     if GPIO.input(12) == GPIO.LOW:
-        subprocess.call('sudo ./send ' + channelCode + ' ' + unitCode + ' 1', shell=True)
+        subprocess.call('sudo send ' + channelCode + ' ' + unitCode + ' 1', shell=True)
         time.sleep(float(duration))
-        subprocess.call('sudo ./send ' + channelCode + ' ' + unitCode + ' 0', shell=True)
-        # 1 sec sleep to get just one low, instead of multpiple because of high sensitivity.
+        subprocess.call('sudo send ' + channelCode + ' ' + unitCode + ' 0', shell=True)
+        # 1 sec sleep to get just one low, instead of multiple because of high sensitivity.
         time.sleep(1)
     # Don't slow down system because of endless loop.
     time.sleep(0.01)
