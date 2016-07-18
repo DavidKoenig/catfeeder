@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Settings;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,23 +23,27 @@ class FeedController extends Controller
      */
     public function feedAction(Request $request)
     {
+        // There has to be only one setting.
+        $settings = $this->getDoctrine()->getRepository('AppBundle:Settings')->findAll()[0];
+
         $formData = [];
         $form = $this->createFormBuilder($formData, array(
             'csrf_protection' => false,
-	    'allow_extra_fields' => true
+	        'allow_extra_fields' => true
         ))
         ->add('hiddenField', TextType::class, array('required' => false))
         ->getForm();
-        
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
             $source = $_SERVER['SERVER_ADDR'];
             $target = shell_exec("hostname -I");
             $port = 11337;
 
-            $nGroup = "11010";
-            $nSwitch = "04";
-            $nAction = "1";
+            // Make sure it's a string, because of possible leading zeros.
+            $nGroup = (string) $settings->getWirelessPlugSocket()->getChannelCode();
+            $nSwitch =  '0' . $settings->getWirelessPlugSocket()->getUnitCode();
+            $nAction = '1';
 
             $output = $nGroup.$nSwitch.$nAction;
 
@@ -48,10 +53,10 @@ class FeedController extends Controller
             socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
             socket_close($socket);
 
-            $nAction = "0";
+            $nAction = '0';
 
             $output = $nGroup.$nSwitch.$nAction;
-            sleep(1);
+            sleep($settings->getDurationPortion());
 
             $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket here\n");
             socket_bind($socket, $source) or die("Could not bind to socket\n");
