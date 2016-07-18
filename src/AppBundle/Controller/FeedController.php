@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class FeedController extends Controller
@@ -24,10 +25,12 @@ class FeedController extends Controller
         $formData = [];
         $form = $this->createFormBuilder($formData, array(
             'csrf_protection' => false,
+	    'allow_extra_fields' => true
         ))
-        ->add('dummyField', TextType::class)
+        ->add('hiddenField', TextType::class, array('required' => false))
         ->getForm();
-
+        
+        $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $source = $_SERVER['SERVER_ADDR'];
             $target = shell_exec("hostname -I");
