@@ -1,12 +1,20 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h3>Feed a Portion or two...</h3>
-    {{ form_start(form) }}
-        {# You have to call the form with the dummy field here, otherwise it's not submitted #}
-	    <div class="hidden">{{ form_widget(form) }}</div>
-        <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Portion size as defined under settings.">
-            <span class="glyphicon glyphicon-tint"></span> Feed one Portion
-        </button>
-    {{ form_end(form, {'render_rest': false}) }}
+    <div class="row">
+        <div class="col-xs-5">
+            <h3>Feed a Portion or two...</h3>
+            {{ form_start(form) }}
+            {# You have to call the form with the dummy field here, otherwise it's not submitted #}
+            <div class="hidden">{{ form_widget(form) }}</div>
+            <button type="submit" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Portion size as defined under settings.">
+                <span class="glyphicon glyphicon-tint"></span> Feed one Portion
+            </button>
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+        <div class="col-xs-7">
+            <h3>Activate or deactivate the light barrier</h3>
+            <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="The light barrier is activated"></button>
+        </div>
+    </div>
 {% endblock content %}
