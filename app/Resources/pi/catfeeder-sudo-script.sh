@@ -18,7 +18,7 @@ fi
 
 if [ $1 = "false" ]
     then
-        kill -9 `ps -ef | grep light-barrier.py | grep -v grep | awk '{print $2}'`
+        kill -9 `ps -ef | grep light-barrier.py | grep -v grep | awk '{print $2}'` &
 fi
 
 exit 0

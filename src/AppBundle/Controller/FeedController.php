@@ -52,10 +52,10 @@ class FeedController extends Controller
 	// Form submissions
 	if($barrierForm->isSubmitted()) {
             if ($lightBarrierActive === true) {
-                dump(shell_exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false &'));
+                dump(shell_exec('sudo set -m && /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false &'));
             } 
             else {
-                dump(shell_exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true 11010 4 1 &'));
+                dump(shell_exec('sudo set -m && /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true 11010 4 1 &'));
             }
 	}
 
