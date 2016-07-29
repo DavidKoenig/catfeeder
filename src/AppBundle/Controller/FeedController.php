@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Settings;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -20,7 +21,6 @@ class FeedController extends Controller
 {
     /**
      * @Route("/feed", name="feed")
-     * @Route ("/", name="home_feed")
      */
     public function feedAction(Request $request)
     {

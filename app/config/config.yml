@@ -4,8 +4,6 @@ imports:
     - { resource: services.yml }
     - { resource: assetic.yml }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
 
@@ -26,9 +24,8 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
-        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
-        handler_id:  session.handler.native_file
-        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        # That standard config doesn't work, don't know why... that's why handler_id must be set to null --> default php handler is used
+        handler_id: ~
     fragments:       ~
     http_method_override: true
     assets: ~
@@ -48,12 +45,6 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #     path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"

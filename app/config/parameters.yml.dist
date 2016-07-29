@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Login values --> Change this to your own!!!
+    app_user: admin
+    app_password: $2y$12$emUUPhOjq/NtOGOPMTzL0uwY71425XNiH5lu2B0USaRmAvYY6AWl.
