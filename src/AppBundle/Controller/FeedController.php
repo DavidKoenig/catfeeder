@@ -41,23 +41,24 @@ class FeedController extends Controller
         $feedForm->handleRequest($request);
 
         $barrierFormData = [];
-        $barrierForm = $this->get('form.factory')->createNamedBuilder('barrier-form', FormType::class	, $barrierFormData, array(
+        $barrierForm = $this->get('form.factory')->createNamedBuilder('barrier-form', FormType::class, $barrierFormData,
+            array(
             'csrf_protection' => false,
-	    'allow_extra_fields' => true
+	        'allow_extra_fields' => true
         ))
         ->add('hiddenField', TextType::class, array('required' => false))
         ->getForm();
         $barrierForm->handleRequest($request);
 
-	// Form submissions
-	if($barrierForm->isSubmitted()) {
-            if ($lightBarrierActive === true) {
-                dump(shell_exec('sudo set -m && /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false &'));
-            } 
-            else {
-                dump(shell_exec('sudo set -m && /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true 11010 4 1 &'));
-            }
-	}
+        // Form submissions
+        if($barrierForm->isSubmitted()) {
+                if ($lightBarrierActive === true) {
+                    exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false > /dev/null &');
+                }
+                else {
+                    exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true 11010 4 1 > /dev/null &');
+                }
+        }
 
         if ($feedForm->isSubmitted()) {
             $source = $_SERVER['SERVER_ADDR'];
@@ -92,7 +93,7 @@ class FeedController extends Controller
         return $this->render('AppBundle::feed.html.twig', array(
             'lightBarrierActive' => $lightBarrierActive,
             'feedForm' => $feedForm->createView(),
-	    'barrierForm' => $barrierForm->createView(),
+	        'barrierForm' => $barrierForm->createView(),
         ));
     }
 }
