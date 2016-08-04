@@ -19,6 +19,7 @@ assetic:
         bootstrap_glyphicons_ttf:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
+            output: "fonts/glyphicons-halflings-regular.ttf"
         main_css:
             inputs:
                 - %kernel.root_dir%/Resources/public/css/main.css
