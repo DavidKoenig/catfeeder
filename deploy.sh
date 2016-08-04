@@ -34,12 +34,14 @@ if [ $1 = "prod" ]
         printf "\n\Dump assetic...\n"
         php bin/console assetic:dump --env=prod --no-debug
     else
-        printf "\n\nUpdateting database...\n"
-        php bin/console doctrine:schema:update --force
-
-        # composer install takes care of cache cleaning
         printf "\n\nComposer install...\n"
         composer install
+
+        printf "\n\nUpdatting database...\n"
+        php bin/console doctrine:schema:update --force
+
+        printf "\n\nClearing cache...\n"
+        php bin/console cache:clear
 fi
 
 printf "\n\nBuilding new optimized class map...\n"

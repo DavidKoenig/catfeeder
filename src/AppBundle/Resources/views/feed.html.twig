@@ -16,7 +16,15 @@
 	    <h3>Activate or deactivate the light barrier</h3>
 	    {{ form_start(barrierForm) }}
 	        <div class="hidden">{{ form_widget(barrierForm) }}</div>
-	        <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="The light barrier is activated">Active</button>
+            {% if lightBarrierActive === true %}
+                <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Activate or deactivate the light-barrier">
+                    Activate
+                </button>
+            {% else %}
+                <button type="submit" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Activate or deactivate the light-barrier">
+                    Deactivate
+                </button>
+            {% endif %}
 	    {{ form_end(barrierForm, {'render_rest': false}) }}
         </div>
     </div>
