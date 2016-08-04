@@ -16,7 +16,7 @@
 	    <h3>Activate or deactivate the Training Hole</h3>
 	    {{ form_start(barrierForm) }}
 	        <div class="hidden">{{ form_widget(barrierForm) }}</div>
-            {% if lightBarrierActive === true %}
+            {% if lightBarrierActive == true %}
                 <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Deactivate the training hole">
                     Deactivate
                 </button>
