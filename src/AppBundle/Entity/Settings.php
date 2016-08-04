@@ -45,11 +45,6 @@ class Settings
     private $durationLightBarrier;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isLightBarrierActive = false;
-
-    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\WirelessPlugSocket", cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="id", onDelete="CASCADE")
      */
@@ -101,22 +96,6 @@ class Settings
     public function setDurationLightBarrier($durationLightBarrier)
     {
         $this->durationLightBarrier = $durationLightBarrier;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsLightBarrierActive()
-    {
-        return $this->isLightBarrierActive;
-    }
-
-    /**
-     * @param mixed $isLightBarrierActive
-     */
-    public function setIsLightBarrierActive($isLightBarrierActive)
-    {
-        $this->isLightBarrierActive = $isLightBarrierActive;
     }
 
     /**

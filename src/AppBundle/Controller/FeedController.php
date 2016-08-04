@@ -26,68 +26,25 @@ class FeedController extends Controller
     {
         // There has to be only one setting.
         $settings = $this->getDoctrine()->getRepository('AppBundle:Settings')->findAll()[0];
-        // Is the light-barrier on or off?
+
+        // Is the light-barrier on or off? --> at first page load
         exec("ps -ef | grep light-barrier.py | grep -v grep | awk '{print$2}'", $outputLightBarrier);
       	$lightBarrierActive = $outputLightBarrier ? true : false;
 
         // Forms
-        $feedFormData = [];
-        $feedForm = $this->get('form.factory')->createNamedBuilder('feed-form', FormType::class, $feedFormData, [
-            'csrf_protection' => false,
-	    'allow_extra_fields' => true
-        ])
-        ->add('hiddenField', TextType::class, array('required' => false))
-        ->getForm();
+        $feedForm = $this->getFeedForm();
         $feedForm->handleRequest($request);
 
-        $barrierFormData = [];
-        $barrierForm = $this->get('form.factory')->createNamedBuilder('barrier-form', FormType::class, $barrierFormData,
-            array(
-            'csrf_protection' => false,
-	        'allow_extra_fields' => true
-        ))
-        ->add('hiddenField', TextType::class, array('required' => false))
-        ->getForm();
+        $barrierForm = $this->getBarrierForm();
         $barrierForm->handleRequest($request);
 
         // Form submissions
         if($barrierForm->isSubmitted()) {
-                if ($lightBarrierActive === true) {
-                    exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false > /dev/null &');
-                }
-                else {
-                    exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true 11010 4 1 > /dev/null &');
-                }
+            $lightBarrierActive = $this->handleLightBarrier($settings, $lightBarrierActive);
         }
 
         if ($feedForm->isSubmitted()) {
-            $source = $_SERVER['SERVER_ADDR'];
-            $target = shell_exec("hostname -I");
-            $port = 11337;
-
-            // Make sure it's a string, because of possible leading zeros.
-            $nGroup = $settings->getWirelessPlugSocket()->getChannelCode();
-            $nSwitch =  '0' . $settings->getWirelessPlugSocket()->getUnitCode();
-            $nAction = '1';
-
-            $output = $nGroup.$nSwitch.$nAction;
-
-            $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket\n");
-            socket_bind($socket, $source) or die("Could not bind to socket\n");
-            socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
-            socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
-            socket_close($socket);
-
-            $nAction = '0';
-
-            $output = $nGroup.$nSwitch.$nAction;
-            sleep($settings->getDurationPortion());
-
-            $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket here\n");
-            socket_bind($socket, $source) or die("Could not bind to socket\n");
-            socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
-            socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
-            socket_close($socket);
+            $this->feed($settings);
         }
 
         return $this->render('AppBundle::feed.html.twig', array(
@@ -95,5 +52,75 @@ class FeedController extends Controller
             'feedForm' => $feedForm->createView(),
 	        'barrierForm' => $barrierForm->createView(),
         ));
+    }
+
+    private function handleLightBarrier($settings, $lightBarrierActive) {
+        if ($lightBarrierActive === true) {
+            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh false > /dev/null &');
+            return false;
+        }
+        else {
+            $unitCode       = $settings->getWirelessPlugSocket()->getUnitCode();
+            $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
+            $duration       = $settings->getDurationPortion();
+            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true '
+                . $unitCode .' ' . $channelCode . ' ' . $duration . ' > /dev/null &');
+            return true;
+        }
+    }
+
+    private function feed($settings) {
+        $source = $_SERVER['SERVER_ADDR'];
+        $target = shell_exec("hostname -I");
+        $port = 11337;
+
+        // Make sure it's a string, because of possible leading zeros.
+        $nGroup = $settings->getWirelessPlugSocket()->getChannelCode();
+        $nSwitch =  '0' . $settings->getWirelessPlugSocket()->getUnitCode();
+        $nAction = '1';
+
+        $output = $nGroup.$nSwitch.$nAction;
+
+        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket\n");
+        socket_bind($socket, $source) or die("Could not bind to socket\n");
+        socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
+        socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
+        socket_close($socket);
+
+        $nAction = '0';
+
+        $output = $nGroup.$nSwitch.$nAction;
+        sleep($settings->getDurationPortion());
+
+        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket here\n");
+        socket_bind($socket, $source) or die("Could not bind to socket\n");
+        socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
+        socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
+        socket_close($socket);
+    }
+
+    private function getBarrierForm() {
+        $barrierFormData = [];
+        $barrierForm = $this->get('form.factory')->createNamedBuilder('barrier-form', FormType::class, $barrierFormData,
+            array(
+                'csrf_protection' => false,
+                'allow_extra_fields' => true
+            ))
+            ->add('hiddenField', TextType::class, array('required' => false))
+            ->getForm();
+
+        return $barrierForm;
+    }
+
+    private function getFeedForm() {
+        $feedFormData = [];
+        $feedForm = $this->get('form.factory')->createNamedBuilder('feed-form', FormType::class, $feedFormData, [
+            'csrf_protection' => false,
+            'allow_extra_fields' => true
+        ])
+            ->add('hiddenField', TextType::class, array('required' => false))
+            ->getForm();
+
+        return $feedForm;
     }
 }

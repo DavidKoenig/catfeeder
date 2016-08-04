@@ -20,9 +20,6 @@ class SettingsType extends AbstractType
             ->add('durationLightBarrier', NumberType::class, array(
                 'scale' => 2
             ))
-            ->add('isLightBarrierActive', CheckboxType::class, array(
-                'required' => false
-            ))
             ->add('wirelessPlugSocket', WirelessPlugSocketType::class)
         ;
     }

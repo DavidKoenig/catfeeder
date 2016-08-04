@@ -32,17 +32,6 @@
                 {{ form_row(form.durationLightBarrier) }}
             </div>
         </div>
-        <h4>Training Hole</h4>
-        <div class="row">
-            <div class="form-inline col-xs-12 cold-sm-6 col-md-3 {% if not form.isLightBarrierActive.vars.valid %}has-error{% endif %}">
-                <label>
-                    {{ form_row(form.isLightBarrierActive) }}
-                    <span class="inline-label">Training Hole On/Off</span>
-                    <span class="glyphicon glyphicon-info-sign info has-feedback" style="padding-top: 15px !important;" data-toggle="tooltip" data-placement="right"
-                          title="Should the training hole with the light barrier in it be on or off? Check for on."></span>
-                </label>
-            </div>
-        </div>
         <h4>Wireless Power Plug</h4>
         <div class="row">
             <div class="form-group col-xs-12 cold-sm-6 col-md-3 {% if not form.wirelessPlugSocket.channelCode.vars.valid %}has-error{% endif %}">
