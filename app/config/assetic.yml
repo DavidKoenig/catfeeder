@@ -3,6 +3,8 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+    bundles:
+        - AppBundle
     assets:
         jquery:
             inputs:
@@ -17,7 +19,6 @@ assetic:
         bootstrap_glyphicons_ttf:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
-            output: "fonts/glyphicons-halflings-regular.ttf"
         main_css:
             inputs:
                 - %kernel.root_dir%/Resources/public/css/main.css

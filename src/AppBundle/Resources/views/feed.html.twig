@@ -18,11 +18,11 @@
 	        <div class="hidden">{{ form_widget(barrierForm) }}</div>
             {% if lightBarrierActive == true %}
                 <button type="submit" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Activate the training hole">
-                    <span class="glyphicon glyphicon-stop"></span>Deactivate
+                    <span class="glyphicon glyphicon-stop"></span> Deactivate
                 </button>
             {% else %}
                 <button type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Deactivate the training hole">
-                    <span class="glyphicon glyphicon-play"></span>Activate
+                    <span class="glyphicon glyphicon-play"></span> Activate
                 </button>
             {% endif %}
 	    {{ form_end(barrierForm, {'render_rest': false}) }}
