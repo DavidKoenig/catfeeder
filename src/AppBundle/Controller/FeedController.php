@@ -64,7 +64,7 @@ class FeedController extends Controller
             $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
             $duration       = $settings->getDurationPortion();
             exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh true '
-                . $unitCode .' ' . $channelCode . ' ' . $duration . ' > /dev/null &');
+                . $channelCode .' ' . $unitCode . ' ' . $duration . ' > /dev/null &');
             return true;
         }
     }
