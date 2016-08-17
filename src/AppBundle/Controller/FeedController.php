@@ -56,7 +56,7 @@ class FeedController extends Controller
 
     private function handleLightBarrier($settings, $lightBarrierActive) {
         if ($lightBarrierActive === true) {
-            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier null null null false> /dev/null &');
+            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier null null null false > /dev/null &');
             return false;
         }
         else {
@@ -64,7 +64,7 @@ class FeedController extends Controller
             $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
             $duration       = $settings->getDurationPortion();
             exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier '
-                . $channelCode .' ' . $unitCode . ' ' . $duration . ' true> /dev/null &');
+                . $channelCode .' ' . $unitCode . ' ' . $duration . ' true > /dev/null &');
             return true;
         }
     }
@@ -75,33 +75,6 @@ class FeedController extends Controller
         $duration       = $settings->getDurationPortion();
         exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh feed '
             . $channelCode .' ' . $unitCode . ' ' . $duration . ' null > /dev/null');
-//        $source = $_SERVER['SERVER_ADDR'];
-//        $target = shell_exec("hostname -I");
-//        $port = 11337;
-//
-//        // Make sure it's a string, because of possible leading zeros.
-//        $nGroup = $settings->getWirelessPlugSocket()->getChannelCode();
-//        $nSwitch =  '0' . $settings->getWirelessPlugSocket()->getUnitCode();
-//        $nAction = '1';
-//
-//        $output = $nGroup.$nSwitch.$nAction;
-//
-//        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket\n");
-//        socket_bind($socket, $source) or die("Could not bind to socket\n");
-//        socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
-//        socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
-//        socket_close($socket);
-//
-//        $nAction = '0';
-//
-//        $output = $nGroup.$nSwitch.$nAction;
-//        sleep($settings->getDurationPortion());
-//
-//        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("Could not create socket here\n");
-//        socket_bind($socket, $source) or die("Could not bind to socket\n");
-//        socket_connect($socket, $target, $port) or die("Could not connect to socket\n");
-//        socket_write($socket, $output, strlen ($output)) or die("Could not write output\n");
-//        socket_close($socket);
     }
 
     private function getBarrierForm() {

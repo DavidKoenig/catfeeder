@@ -7,7 +7,7 @@
 # $4 time
 # $5 true or false --> activate light-barrier or not
 #
-### sudo script for allowing the user www-data to run commands with root privilegs. ###
+### sudo script for allowing the user www-data to run commands with root privileges. ###
 
 ### feed part ###
 if [ $1 = "feed" ]
