@@ -64,7 +64,7 @@ class FeedController extends Controller
             $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
             $duration       = $settings->getDurationPortion();
             exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier '
-                . $channelCode .' ' . $unitCode . ' ' . $duration . ' true > /dev/null &');
+                . $channelCode .' ' . $unitCode . ' ' . $duration . ' true> /dev/null &');
             return true;
         }
     }
@@ -74,7 +74,7 @@ class FeedController extends Controller
         $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
         $duration       = $settings->getDurationPortion();
         exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh feed '
-            . $channelCode .' ' . $unitCode . ' ' . $duration . ' null > /dev/null &');
+            . $channelCode .' ' . $unitCode . ' ' . $duration . ' null > /dev/null');
 //        $source = $_SERVER['SERVER_ADDR'];
 //        $target = shell_exec("hostname -I");
 //        $port = 11337;
