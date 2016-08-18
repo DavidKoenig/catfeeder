@@ -1,4 +1,4 @@
-cat-feeder
+Cat Feeder
 =========
 Software for a cat feeder built with RaspberryPi. 
 
