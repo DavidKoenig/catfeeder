@@ -39,7 +39,6 @@ You have to do the following steps to deploy the:
         AllowOverride All
     </Directory>
     ```
-    
 - enable the config with `sudo a2ensite cat-feeder.conf`
 - activate the apache url rewrite module with `sudo a2enmod rewrite`
 - finally launch the deploy script in with `bash /var/www/html/cat-feeder/delpoy.sh prod`
