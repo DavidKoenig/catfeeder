@@ -24,24 +24,20 @@ export SYMFONY_ENV=$1
 printf "Pulling master branch...\n"
 git pull origin master
 
-## Composer install
+printf "\n\nUpdatting database...\n"
+php bin/console doctrine:schema:update --force
+
 if [ $1 = "prod" ]
     then
         # composer install takes care of cache cleaning
         printf "\n\nComposer install...\n"
-        composer install --no-dev
+        composer install --no-dev --optimize-autoloader
 
         printf "\n\Dump assetic...\n"
         php bin/console assetic:dump --env=prod --no-debug
     else
         printf "\n\nComposer install...\n"
         composer install
-
-        printf "\n\nUpdatting database...\n"
-        php bin/console doctrine:schema:update --force
-
-        printf "\n\nClearing cache...\n"
-        php bin/console cache:clear
 fi
 
 printf "\n\nBuilding new optimized class map...\n"
