@@ -1,6 +1,6 @@
-Cat Feeder
+catfeeder
 =========
-Software for a cat feeder built with RaspberryPi. 
+Software for an automatic catfeeder built with RaspberryPi. 
 
 # How to Install
 ## Dependencies
