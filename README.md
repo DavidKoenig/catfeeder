@@ -1,6 +1,40 @@
 catfeeder
 =========
-Software for an automatic catfeeder built with RaspberryPi. 
+Software for an automatic web-controlled cat feeder built with RaspberryPi. 
+
+# What is this and why?
+Some cat owners (mostly with flat-only cats) know the problem: You are one or two days not at home. 
+Your cat has enough water, enough toilets with sand filled, etc., but when your cat sees food it will eat it immediately. 
+In many countries you just get a programmable cat feeder with day and time setting, but you get no chance to connect it 
+anywhere and build your own interface.
+
+This is a tutorial with software how to build your own automatic cat feeder controlled via a web interface.
+It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circles,
+Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
+
+# How does it work?
+
+This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
+The meat chopper is plugged in a wireless socket which gets controlled by a Raspberry Pi. The Pi sets the wireless socket
+on and off in a time that you can control via the web interface, so that you can portioning it. In the box there is a
+hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
+a textile mouse, to get food reward.
+
+# What do you need?
+
+- a Raspberry Pi - I reference in this tutorial to the Raspberry Pi B+
+- a simple meet chopper, where you can remove the blades
+- a 433 MHz transmitter, connectable to the Pi
+- a wireless socket, where you can set the unit and channel code by your own
+- if you want to use the light barrier, a breadboard and a IR sending and receiving diode, some resistors and cable
+
+The total amount is about 100€ (in Germany), depending on your country's prices.
+
+# How to build
+## Electronic stuff
+
+## Wood box
+# Connect to the internet
 
 # How to Install
 ## Dependencies
@@ -19,7 +53,7 @@ Create a database, e.g. *catfeeder* (you will be later asked about the name and 
 ## Set rights
 ##### bash script
 Because of the usage of the [Raspberry Pi Remote library](https://github.com/xkonni/raspberry-remote.git) the python scripts in this project need sudo rights. 
-But doen't be afraid, it's all wrapped in a single bash script on which *www-data* has access. 
+But don't be afraid, it's all wrapped in a single bash script on which *www-data* has access. 
 But we need to make it accessible for *www-data*.
 
 To do so add the following at the end of `/etc/sudoers`:
