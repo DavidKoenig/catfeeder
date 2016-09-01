@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Cat-feeder by DavidKoenig</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Cat-feeder</h1>
+        <p class="header">A RaspberryPi Cat Feeder</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/DavidKoenig/cat-feeder/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/DavidKoenig/cat-feeder/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/DavidKoenig/cat-feeder">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/DavidKoenig">DavidKoenig</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="cat-feeder" class="anchor" href="#cat-feeder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cat Feeder</h1>
+
+<p>Software for a cat feeder built with RaspberryPi. </p>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h1>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>First install these packages to your raspbian:</p>
+
+<ul>
+<li>apache2</li>
+<li>php5, php5-pgsql, curl, php5-cli</li>
+<li>postgresql</li>
+<li>composer</li>
+</ul>
+
+<h2>
+<a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h2>
+
+<p>Clone this repository to <code>/var/www/html/</code></p>
+
+<h2>
+<a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h2>
+
+<p>Create a database, e.g. <em>catfeeder</em> (you will be later asked about the name and credentials and when executing <code>composer install</code>)</p>
+
+<h2>
+<a id="set-rights" class="anchor" href="#set-rights" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set rights</h2>
+
+<h5>
+<a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bash script</h5>
+
+<p>Because of the usage of the <a href="https://github.com/xkonni/raspberry-remote.git">Raspberry Pi Remote library</a> the python scripts in this project need sudo rights. 
+But doen't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access. 
+But we need to make it accessible for <em>www-data</em>.</p>
+
+<p>To do so add the following at the end of <code>/etc/sudoers</code>:</p>
+
+<pre><code>www-data ALL=NOPASSWD:/var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh
+</code></pre>
+
+<p>Furthermore if something doesn't work with the deploy script you have to add the user <em>pi</em> to <em>www-data</em> with <code>sudo usermod -a -G www-data pi</code>' </p>
+
+<h2>
+<a id="deploy" class="anchor" href="#deploy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy</h2>
+
+<p>You have to do the following steps to deploy the:</p>
+
+<ul>
+<li>create a file named <code>cat-feeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:
+<code>
+Alias /cat-feeder "/var/www/html/cat-feeder/web/"
+&lt;Directory "var/www/html/cat-feeder/web"&gt;
+    Options +FollowSymLinks
+    AllowOverride All
+&lt;/Directory&gt;
+</code>
+</li>
+<li>enable the config with <code>sudo a2ensite cat-feeder.conf</code>
+</li>
+<li>activate the apache url rewrite module with <code>sudo a2enmod rewrite</code>
+</li>
+<li>finally launch the deploy script in with <code>bash /var/www/html/cat-feeder/delpoy.sh prod</code>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
