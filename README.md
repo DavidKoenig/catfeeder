@@ -9,7 +9,7 @@ In many countries you just get a programmable cat feeder with day and time setti
 anywhere and build your own interface.
 
 This is a tutorial with software how to build your own automatic cat feeder controlled via a web interface.
-It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circles,
+It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circuits,
 Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
 
 # How does it work?
@@ -26,31 +26,55 @@ a textile mouse, to get food reward.
 - a simple meet chopper, where you can remove the blades
 - a 433 MHz transmitter, connectable to the Pi
 - a wireless socket, where you can set the unit and channel code by your own
-- if you want to use the light barrier, a breadboard and a IR sending and receiving diode, some resistors and cable
+- jumper cables
+
+### For the light barrier
+- a breadboard
+- a IR emitting and receiving diode
+- two 470 Ohm resistor
+- one 10k Ohm resistor
 
 The total amount is about 100€ (in Germany), depending on your country's prices.
 
 # How to build
 ## Electronic stuff
 
+### Wiring diagram
+
+![alt tag](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png)
+
+####Legend
+- red: +
+- black: -
+- blue: data cables
+- pin 17: data of 433MHz transmitter
+- pin 18: data of the IR receiver
+
+The 433MHz transmitter (in the left) is symbolic as text and symbolic on the breadboard. You should connect it
+directly to the Pi via jumper cables.
+
+If you just want the feed function without light barrier, you only have to connect the 433MHz transmitter.
+For using the light barrier function connect also the stuff on the right side of the breadboard as shown in the wiring plan. 
+
 ## Wood box
-# Connect to the internet
+Will be edited soon...
 
 # How to Install
 ## Dependencies
 First install these packages to your raspbian:
 - apache2
-- php5, php5-pgsql, curl, php5-cli
+- php5, php5-pgsql, php5-cli
+- curl
 - postgresql
 - composer
 
 ## Clone Repository
-Clone this repository to `/var/www/html/`
+Clone this repository to `/var/www/html/`. 
 
 ## Create database
-Create a database, e.g. *catfeeder* (you will be later asked about the name and credentials and when executing `composer install`)
+Create a database, e.g. *catfeeder* (you will be later asked about the name and credentials and when executing the deploy script)
 
-## Set rights
+## Set permissions
 ##### bash script
 Because of the usage of the [Raspberry Pi Remote library](https://github.com/xkonni/raspberry-remote.git) the python scripts in this project need sudo rights. 
 But don't be afraid, it's all wrapped in a single bash script on which *www-data* has access. 
@@ -65,17 +89,30 @@ Furthermore if something doesn't work with the deploy script you have to add the
 ## Deploy
 You have to do the following steps to deploy the:
 
-- create a file named `cat-feeder.conf` in `/etc/apache2/conf-available` and write the following in it:
+- create a file named `catfeeder.conf` in `/etc/apache2/conf-available` and write the following in it:
     ```
-    Alias /cat-feeder "/var/www/html/cat-feeder/web/"
+    Alias /catfeeder "/var/www/html/catfeeder/web/"
     <Directory "var/www/html/cat-feeder/web">
         Options +FollowSymLinks
         AllowOverride All
     </Directory>
     ```
-- enable the config with `sudo a2ensite cat-feeder.conf`
+- enable the config with `sudo a2ensite catfeeder.conf`
 - activate the apache url rewrite module with `sudo a2enmod rewrite`
-- finally launch the deploy script in with `bash /var/www/html/cat-feeder/delpoy.sh prod`
+### Launch the deploy script
+This tutorial assumes, that you are in the root directory of this application.
+Execute the deploy script with `bash /var/www/html/catfeeder/delpoy.sh prod`.
+You will be asked about several configurations:
+- database settings --> change database password to the your own. Don't use default!
+- your can ignore the mailer settings, just hit enter to use default
+- login name and password
+    * use bcrypt to encode you password with `php bin/console security:encode-password` (use another terminal)
+    * paste the generated password to the prompt
+    * change your token secret, don't use default!
 
+#### That's it you are finished installing the application!
+If you want to use the catfeeder outside you local network (from the internet), you have to create your own ssl
+certificate, make port forwarding to the IP of your Pi (on the router) and use a dyndns service to attach it to a domain.
+These are just hints, I will not provide a tutorial for this, there are enough to find on the search engine of your choice.
 
 

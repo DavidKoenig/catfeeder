@@ -16,7 +16,7 @@ parameters:
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ydaa5_GI`K5&l~FPl4XCH89n=+'@rn
 
     # Login values --> Change this to your own!!!
     app_user: admin
