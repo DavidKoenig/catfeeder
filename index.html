@@ -17,7 +17,7 @@
     <div class="wrapper">
       <header>
         <h1 class="header">catfeeder</h1>
-        <p class="header">A RaspberryPi Cat Feeder</p>
+        <p class="header">Automatic web-controlled cat feeder built with RaspberryPi.</p>
 
         <ul>
           <li class="download"><a class="buttons" href="https://github.com/DavidKoenig/catfeeder/zipball/master">Download ZIP</a></li>
@@ -31,9 +31,86 @@
       </header>
       <section>
         <h1>
-<a id="cat-feeder" class="anchor" href="#cat-feeder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cat Feeder</h1>
+<a id="catfeeder" class="anchor" href="#catfeeder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>catfeeder</h1>
 
-<p>Software for a cat feeder built with RaspberryPi. </p>
+<p>Software for an automatic web-controlled cat feeder built with RaspberryPi. </p>
+
+<h1>
+<a id="what-is-this-and-why" class="anchor" href="#what-is-this-and-why" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is this and why?</h1>
+
+<p>Some cat owners (mostly with flat-only cats) know the problem: You are one or two days not at home. 
+Your cat has enough water, enough toilets with sand filled, etc., but when your cat sees food it will eat it immediately. 
+In many countries you just get a programmable cat feeder with day and time setting, but you get no chance to connect it 
+anywhere and build your own interface.</p>
+
+<p>This is a tutorial with software how to build your own automatic cat feeder controlled via a web interface.
+It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circuits,
+Raspberry Pi and manual work. In other words, you need a leaning to be a maker.</p>
+
+<h1>
+<a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does it work?</h1>
+
+<p>This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
+The meat chopper is plugged in a wireless socket which gets controlled by a Raspberry Pi. The Pi sets the wireless socket
+on and off in a time that you can control via the web interface, so that you can portioning it. In the box there is a
+hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
+a textile mouse, to get food reward.</p>
+
+<h1>
+<a id="what-do-you-need" class="anchor" href="#what-do-you-need" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What do you need?</h1>
+
+<ul>
+<li>a Raspberry Pi - I reference in this tutorial to the Raspberry Pi B+</li>
+<li>a simple meet chopper, where you can remove the blades</li>
+<li>a 433 MHz transmitter, connectable to the Pi</li>
+<li>a wireless socket, where you can set the unit and channel code by your own</li>
+<li>jumper cables</li>
+</ul>
+
+<h3>
+<a id="for-the-light-barrier" class="anchor" href="#for-the-light-barrier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For the light barrier</h3>
+
+<ul>
+<li>a breadboard</li>
+<li>a IR emitting and receiving diode</li>
+<li>two 470 Ohm resistor</li>
+<li>one 10k Ohm resistor</li>
+</ul>
+
+<p>The total amount is about 100€ (in Germany), depending on your country's prices.</p>
+
+<h1>
+<a id="how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to build</h1>
+
+<h2>
+<a id="electronic-stuff" class="anchor" href="#electronic-stuff" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Electronic stuff</h2>
+
+<h3>
+<a id="wiring-diagram" class="anchor" href="#wiring-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wiring diagram</h3>
+
+<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png" alt="alt tag"></p>
+
+<h4>
+<a id="legend" class="anchor" href="#legend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Legend</h4>
+
+<ul>
+<li>red: +</li>
+<li>black: -</li>
+<li>blue: data cables</li>
+<li>pin 17: data of 433MHz transmitter</li>
+<li>pin 18: data of the IR receiver</li>
+</ul>
+
+<p>The 433MHz transmitter (in the left) is symbolic as text and symbolic on the breadboard. You should connect it
+directly to the Pi via jumper cables.</p>
+
+<p>If you just want the feed function without light barrier, you only have to connect the 433MHz transmitter.
+For using the light barrier function connect also the stuff on the right side of the breadboard as shown in the wiring plan. </p>
+
+<h2>
+<a id="wood-box" class="anchor" href="#wood-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wood box</h2>
+
+<p>Will be edited soon...</p>
 
 <h1>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h1>
@@ -45,7 +122,8 @@
 
 <ul>
 <li>apache2</li>
-<li>php5, php5-pgsql, curl, php5-cli</li>
+<li>php5, php5-pgsql, php5-cli</li>
+<li>curl</li>
 <li>postgresql</li>
 <li>composer</li>
 </ul>
@@ -53,21 +131,21 @@
 <h2>
 <a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h2>
 
-<p>Clone this repository to <code>/var/www/html/</code></p>
+<p>Clone this repository to <code>/var/www/html/</code>. </p>
 
 <h2>
 <a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h2>
 
-<p>Create a database, e.g. <em>catfeeder</em> (you will be later asked about the name and credentials and when executing <code>composer install</code>)</p>
+<p>Create a database, e.g. <em>catfeeder</em> (you will be later asked about the name and credentials and when executing the deploy script)</p>
 
 <h2>
-<a id="set-rights" class="anchor" href="#set-rights" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set rights</h2>
+<a id="set-permissions" class="anchor" href="#set-permissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set permissions</h2>
 
 <h5>
 <a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bash script</h5>
 
 <p>Because of the usage of the <a href="https://github.com/xkonni/raspberry-remote.git">Raspberry Pi Remote library</a> the python scripts in this project need sudo rights. 
-But doen't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access. 
+But don't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access. 
 But we need to make it accessible for <em>www-data</em>.</p>
 
 <p>To do so add the following at the end of <code>/etc/sudoers</code>:</p>
@@ -83,22 +161,40 @@ But we need to make it accessible for <em>www-data</em>.</p>
 <p>You have to do the following steps to deploy the:</p>
 
 <ul>
-<li>create a file named <code>cat-feeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:
+<li>create a file named <code>catfeeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:
 <code>
-Alias /cat-feeder "/var/www/html/cat-feeder/web/"
+Alias /catfeeder "/var/www/html/catfeeder/web/"
 &lt;Directory "var/www/html/cat-feeder/web"&gt;
     Options +FollowSymLinks
     AllowOverride All
 &lt;/Directory&gt;
 </code>
 </li>
-<li>enable the config with <code>sudo a2ensite cat-feeder.conf</code>
+<li>enable the config with <code>sudo a2ensite catfeeder.conf</code>
 </li>
 <li>activate the apache url rewrite module with <code>sudo a2enmod rewrite</code>
-</li>
-<li>finally launch the deploy script in with <code>bash /var/www/html/cat-feeder/delpoy.sh prod</code>
+### Launch the deploy script
+This tutorial assumes, that you are in the root directory of this application.
+Execute the deploy script with <code>bash /var/www/html/catfeeder/delpoy.sh prod</code>.
+You will be asked about several configurations:</li>
+<li>database settings --&gt; change database password to the your own. Don't use default!</li>
+<li>your can ignore the mailer settings, just hit enter to use default</li>
+<li>login name and password
+
+<ul>
+<li>use bcrypt to encode you password with <code>php bin/console security:encode-password</code> (use another terminal)</li>
+<li>paste the generated password to the prompt</li>
+<li>change your token secret, don't use default!</li>
+</ul>
 </li>
 </ul>
+
+<h4>
+<a id="thats-it-you-are-finished-installing-the-application" class="anchor" href="#thats-it-you-are-finished-installing-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>That's it you are finished installing the application!</h4>
+
+<p>If you want to use the catfeeder outside you local network (from the internet), you have to create your own ssl
+certificate, make port forwarding to the IP of your Pi (on the router) and use a dyndns service to attach it to a domain.
+These are just hints, I will not provide a tutorial for this, there are enough to find on the search engine of your choice.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
