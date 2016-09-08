@@ -60,7 +60,7 @@ For using the light barrier function connect also the stuff on the right side of
 Will be edited soon...
 
 # How to Install
-## Dependencies
+##### Dependencies
 First install these packages to your raspbian:
 - apache2
 - php5, php5-pgsql, php5-cli
@@ -68,23 +68,44 @@ First install these packages to your raspbian:
 - postgresql
 - composer
 
-## Clone Repository
+##### Clone Repository
 Clone this repository to `/var/www/html/`. 
 
-## Create database
+##### Create database
 Create a database, e.g. *catfeeder* (you will be later asked about the name and credentials and when executing the deploy script)
 
+##### Install project dependencies
+Run `composer install` from the root directory of the project
+
 ## Set permissions
-##### bash script
+##### Bash script
 Because of the usage of the [Raspberry Pi Remote library](https://github.com/xkonni/raspberry-remote.git) the python scripts in this project need sudo rights. 
-But don't be afraid, it's all wrapped in a single bash script on which *www-data* has access. 
+But don't be afraid, it's all wrapped in a single bash script on which *www-data* has access and the command for executing this script is hardcoded. 
 But we need to make it accessible for *www-data*.
 
 To do so add the following at the end of `/etc/sudoers`:
  
     www-data ALL=NOPASSWD:/var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh
 
-Furthermore if something doesn't work with the deploy script you have to add the user *pi* to *www-data* with `sudo usermod -a -G www-data pi`' 
+##### Python scripts
+Please make sure, that the scripts in the folder *app/Resources/pi/* are all executable and belong to the user pi and the www-data group
+To do so run the following: 
+
+    sudo chmod +x feed.py light-barrier.py send catfeeder-sudo-script.sh
+    
+for executable right and
+ 
+    sudo chown www-data:pi feed.py light-barrier.py send catfeeder-sudo-script.sh
+
+Further you have to add the user *pi* to *www-data* with 
+
+    sudo usermod -a -G www-data pi
+
+##### Troubleshooting
+If there goes something wrong with cache cleaning when running `composer install` (it will be mentioned when the error occurs) set the permissions for cache, logs and sessions folder as following (first go to the *var* folder of the project):
+- delete the content of the folders *cache*, *logs*, *sessions* (not the folders themselves)
+ - `sudo chmod g+s cache logs session`
+ - `sudo setfal -dR -m g::rwx cache logs sessions`
 
 ## Deploy
 You have to do the following steps to deploy the:
@@ -99,9 +120,12 @@ You have to do the following steps to deploy the:
     ```
 - enable the config with `sudo a2ensite catfeeder.conf`
 - activate the apache url rewrite module with `sudo a2enmod rewrite`
+
 ### Launch the deploy script
-This tutorial assumes, that you are in the root directory of this application.
-Execute the deploy script with `bash /var/www/html/catfeeder/delpoy.sh prod`.
+
+Execute the deploy script with 
+    
+    bash /var/www/html/catfeeder/delpoy.sh prod.
 You will be asked about several configurations:
 - database settings --> change database password to the your own. Don't use default!
 - your can ignore the mailer settings, just hit enter to use default
