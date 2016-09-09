@@ -88,7 +88,7 @@ a textile mouse, to get food reward.</p>
 <h3>
 <a id="wiring-diagram" class="anchor" href="#wiring-diagram" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wiring diagram</h3>
 
-<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png" alt="alt tag"></p>
+<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png" alt="wiring-diagram"></p>
 
 <h4>
 <a id="legend" class="anchor" href="#legend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Legend</h4>
@@ -115,8 +115,8 @@ For using the light barrier function connect also the stuff on the right side of
 <h1>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h1>
 
-<h2>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+<h5>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h5>
 
 <p>First install these packages to your raspbian:</p>
 
@@ -128,24 +128,29 @@ For using the light barrier function connect also the stuff on the right side of
 <li>composer</li>
 </ul>
 
-<h2>
-<a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h2>
+<h5>
+<a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h5>
 
 <p>Clone this repository to <code>/var/www/html/</code>. </p>
 
-<h2>
-<a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h2>
+<h5>
+<a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h5>
 
 <p>Create a database, e.g. <em>catfeeder</em> (you will be later asked about the name and credentials and when executing the deploy script)</p>
+
+<h5>
+<a id="install-project-dependencies" class="anchor" href="#install-project-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install project dependencies</h5>
+
+<p>Run <code>composer install</code> from the root directory of the project</p>
 
 <h2>
 <a id="set-permissions" class="anchor" href="#set-permissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set permissions</h2>
 
 <h5>
-<a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>bash script</h5>
+<a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash script</h5>
 
 <p>Because of the usage of the <a href="https://github.com/xkonni/raspberry-remote.git">Raspberry Pi Remote library</a> the python scripts in this project need sudo rights. 
-But don't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access. 
+But don't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access and the command for executing this script is hardcoded. 
 But we need to make it accessible for <em>www-data</em>.</p>
 
 <p>To do so add the following at the end of <code>/etc/sudoers</code>:</p>
@@ -153,7 +158,39 @@ But we need to make it accessible for <em>www-data</em>.</p>
 <pre><code>www-data ALL=NOPASSWD:/var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh
 </code></pre>
 
-<p>Furthermore if something doesn't work with the deploy script you have to add the user <em>pi</em> to <em>www-data</em> with <code>sudo usermod -a -G www-data pi</code>' </p>
+<h5>
+<a id="python-scripts" class="anchor" href="#python-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python scripts</h5>
+
+<p>Please make sure, that the scripts in the folder <em>app/Resources/pi/</em> are all executable and belong to the user pi and the www-data group
+To do so run the following: </p>
+
+<pre><code>sudo chmod +x feed.py light-barrier.py send catfeeder-sudo-script.sh
+</code></pre>
+
+<p>for executable right and</p>
+
+<pre><code>sudo chown www-data:pi feed.py light-barrier.py send catfeeder-sudo-script.sh
+</code></pre>
+
+<p>Further you have to add the user <em>pi</em> to <em>www-data</em> with </p>
+
+<pre><code>sudo usermod -a -G www-data pi
+</code></pre>
+
+<h5>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h5>
+
+<p>If there goes something wrong with cache cleaning when running <code>composer install</code> (it will be mentioned when the error occurs) set the permissions for cache, logs and sessions folder as following (first go to the <em>var</em> folder of the project):</p>
+
+<ul>
+<li>delete the content of the folders <em>cache</em>, <em>logs</em>, <em>sessions</em> (not the folders themselves)
+
+<ul>
+<li><code>sudo chmod g+s cache logs session</code></li>
+<li><code>sudo setfal -dR -m g::rwx cache logs sessions</code></li>
+</ul>
+</li>
+</ul>
 
 <h2>
 <a id="deploy" class="anchor" href="#deploy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy</h2>
@@ -161,22 +198,34 @@ But we need to make it accessible for <em>www-data</em>.</p>
 <p>You have to do the following steps to deploy the:</p>
 
 <ul>
-<li>create a file named <code>catfeeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:
-<code>
-Alias /catfeeder "/var/www/html/catfeeder/web/"
-&lt;Directory "var/www/html/cat-feeder/web"&gt;
-    Options +FollowSymLinks
-    AllowOverride All
-&lt;/Directory&gt;
-</code>
-</li>
+<li>create a file named <code>catfeeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:</li>
+</ul>
+
+<pre><code>    Alias /catfeeder "/var/www/html/catfeeder/web/"
+    &lt;Directory "var/www/html/cat-feeder/web"&gt;
+        Options +FollowSymLinks
+        AllowOverride All
+    &lt;/Directory&gt;
+</code></pre>
+
+<ul>
 <li>enable the config with <code>sudo a2ensite catfeeder.conf</code>
 </li>
 <li>activate the apache url rewrite module with <code>sudo a2enmod rewrite</code>
-### Launch the deploy script
-This tutorial assumes, that you are in the root directory of this application.
-Execute the deploy script with <code>bash /var/www/html/catfeeder/delpoy.sh prod</code>.
-You will be asked about several configurations:</li>
+</li>
+</ul>
+
+<h3>
+<a id="launch-the-deploy-script" class="anchor" href="#launch-the-deploy-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Launch the deploy script</h3>
+
+<p>Execute the deploy script with </p>
+
+<pre><code>bash /var/www/html/catfeeder/delpoy.sh prod.
+</code></pre>
+
+<p>You will be asked about several configurations:</p>
+
+<ul>
 <li>database settings --&gt; change database password to the your own. Don't use default!</li>
 <li>your can ignore the mailer settings, just hit enter to use default</li>
 <li>login name and password
