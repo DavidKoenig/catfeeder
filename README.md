@@ -41,7 +41,7 @@ The total amount is about 100€ (in Germany), depending on your country's price
 
 ### Wiring diagram
 
-[[https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png|alt=wiring-diagram]]
+![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png)
 
 ####Legend
 - red: +
