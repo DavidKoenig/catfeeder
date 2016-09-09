@@ -112,12 +112,14 @@ You have to do the following steps to deploy the:
 
 - create a file named `catfeeder.conf` in `/etc/apache2/conf-available` and write the following in it:
     
+```
     Alias /catfeeder "/var/www/html/catfeeder/web/"
     <Directory "var/www/html/cat-feeder/web">
         Options +FollowSymLinks
         AllowOverride All
     </Directory>
-   
+ ```
+ 
 - enable the config with `sudo a2ensite catfeeder.conf`
 - activate the apache url rewrite module with `sudo a2enmod rewrite`
 
