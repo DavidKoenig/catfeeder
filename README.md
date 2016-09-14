@@ -12,6 +12,24 @@ This is a tutorial with software how to build your own automatic cat feeder cont
 It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circuits,
 Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
 
+## The web interface
+
+You have a secured web interface where you have to login to control the catfeeder:
+
+![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.png)
+
+Then you have a page where you can feed immediately and power on/off the training light-barrier:
+
+![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.png)
+
+There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:
+
+![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.png)
+
+And of course this web-app is responsive:
+
+![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.png)
+
 # How does it work?
 
 This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
@@ -57,6 +75,7 @@ If you just want the feed function without light barrier, you only have to conne
 For using the light barrier function connect also the stuff on the right side of the breadboard as shown in the wiring plan. 
 
 ## Wood box
+
 Will be edited soon...
 
 # How to Install
@@ -139,6 +158,6 @@ You will be asked about several configurations:
 #### That's it you are finished installing the application!
 If you want to use the catfeeder outside you local network (from the internet), you have to create your own ssl
 certificate, make port forwarding to the IP of your Pi (on the router) and use a dyndns service to attach it to a domain.
-These are just hints, I will not provide a tutorial for this, there are enough to find on the search engine of your choice.
+These are just hints, I will not provide a tutorial for this, there are enough to find on the search engine of your choice ;-)
 
 
