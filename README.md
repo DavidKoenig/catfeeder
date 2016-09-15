@@ -16,19 +16,19 @@ Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
 
 You have a secured web interface where you have to login to control the catfeeder:
 
-![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.png)
+![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG)
 
 Then you have a page where you can feed immediately and power on/off the training light-barrier:
 
-![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.png)
+![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG)
 
 There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:
 
-![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.png)
+![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG)
 
 And of course this web-app is responsive:
 
-![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.png)
+![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG)
 
 # How does it work?
 
@@ -59,7 +59,7 @@ The total amount is about 100€ (in Germany), depending on your country's price
 
 ### Wiring diagram
 
-![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.png)
+![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.JPG)
 
 ####Legend
 - red: +
