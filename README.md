@@ -76,7 +76,70 @@ For using the light barrier function connect also the stuff on the right side of
 
 ## Wood box
 
-Will be edited soon...
+This is an example of how to build a wooden box, that keeps the meet-chopper, pi, wireless socket, etc. in it.
+The wood box is a little bit larger than the meet chopper - the dimensions are attached to the one I bought.
+As you can see in the pictures, I have put a raised floor into the box - this is not a must. Initially I wanted to bring the meet chopper 
+a little bit up to place a slide outwards on the box. But I rejected this idea because it works also nice without a slide. Now it's used to 
+put the cable stuff and Pi under it. You don't need to build this raised floor for construction reasons (then you can build the box a little 
+less higher) - do as you want. If you don't want to use the light-barrier / training hole you can also build the box smaller - just adjust it to your meat chopper.
+
+You need these things:
+- 4 side plates with
+    - A: 2 of them have a little bit more width than the meat chopper has depth [for mine 38cm]
+    - B: the other 2 having the width of A minus the their thickness (together) [for mine 35,4cm]
+- C: 2 matching head (a) and bottom (b) plates --> they are a square with the measure of the width of A
+- D: about 10 to 12 brackets
+- E: 2 hinge
+- F: some screws (maybe 30), that are not longer than the thickness of A, B and C [for mine 1,8cm]
+- G: some screws (4 to 5) that are about the double longer than F
+- H: if you want to build the raised floor: 1 plate (a) that can carry the meat chopper [for mine 23cm x 35,4cm] and a little square timber (b) [for mine about 10cm high]
+- I: 1 little plate about 5cm x 5cm to place one IR of the light-barrier  
+    
+The steps to build are the following:
+
+- Step 1: Screw the plates A and B with the brackets D together as you can see in picture 1 and 2
+(don't mind my additional silver brackets in the picture - I used it because one plate was not 100% straight).
+
+![box1](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box1.JPG)
+
+As you can see my box is a square in the width and a rectangle in the height.
+
+![box2](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box2.JPG)
+
+- Step 2: Screw on the bottom plate C(b) with G
+
+![box3](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box3.JPG)
+
+- Step 3 (additional): Place the raised floor H(a) with two brackets D and the square timber H(b) with one G    
+
+![box4](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box4.JPG)
+
+![box5](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box5.JPG)
+
+- Step 4: Apply the head plate C(a) with the hinge E and some screws F
+
+![box6](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box6.JPG)
+
+- Step 5: If you don't use the light-barrier skip this step. Place the little plate I with 1 bracket D and F about 10cm 
+away from the wall and 10cm from the top (the space to the top is necessary to avoid detection errors because of incident light, 
+the space between wall and plate to let the cat toy fall through). 
+
+![box7](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box7.JPG)
+
+- Step 7: Place a hole at the back bottom of the box to put the power cable through.
+- Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box.
+- Step 9: If you use the light-barrier: Put the IRs on the little plate I and the wall. Make sure they are exactly on the opposite of each other. 
+
+![box8](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box8.JPG)
+
+- Step 6: Measure where the outgoing of the meat chopper from the bottom is and place a hole in box at this position [for mine about 4cm diameter and 28cm high]. 
+If you use the light-barrier also place a hole on head between the wall and the plate you attached in Step 5. 
+
+![box9](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box9.JPG)
+
+![box10](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box10.JPG)
+
+![box11](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box11.JPG)
 
 # How to Install
 ##### Dependencies
