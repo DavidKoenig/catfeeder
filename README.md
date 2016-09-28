@@ -129,9 +129,9 @@ the space between wall and plate to let the cat toy fall through).
 - Step 6: Measure where the outgoing of the meat chopper from the bottom is and place a hole in box at this position [for mine about 4cm diameter and 28cm high]. 
 If you use the light-barrier also place a hole on head between the wall and the plate you attached in Step 5. 
 
-![box12](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/12.JPG)
+![box12](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box12.JPG)
 
-![box13](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/13.JPG)
+![box13](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box13.JPG)
 
 - Step 7: Place a hole at the back bottom of the box to put the power cable through. 
 
