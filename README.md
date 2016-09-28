@@ -59,7 +59,7 @@ The total amount is about 100€ (in Germany), depending on your country's price
 
 ### Wiring diagram
 
-![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.JPG)
+![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.JPG?raw=true)
 
 ####Legend
 - red: +
@@ -135,7 +135,7 @@ If you use the light-barrier also place a hole on head between the wall and the 
 
 - Step 7: Place a hole at the back bottom of the box to put the power cable through. 
 
-![14](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG)
+![box14](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG)
 
 - Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box. Place the meat chopper.
 
