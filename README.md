@@ -126,20 +126,28 @@ the space between wall and plate to let the cat toy fall through).
 
 ![box7](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box7.JPG)
 
-- Step 7: Place a hole at the back bottom of the box to put the power cable through.
-- Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box.
-- Step 9: If you use the light-barrier: Put the IRs on the little plate I and the wall. Make sure they are exactly on the opposite of each other. 
-
-![box8](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box8.JPG)
-
 - Step 6: Measure where the outgoing of the meat chopper from the bottom is and place a hole in box at this position [for mine about 4cm diameter and 28cm high]. 
 If you use the light-barrier also place a hole on head between the wall and the plate you attached in Step 5. 
+
+![box12](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/12.JPG)
+
+![box13](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/13.JPG)
+
+- Step 7: Place a hole at the back bottom of the box to put the power cable through. 
+
+![14](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG)
+
+- Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box. Place the meat chopper.
 
 ![box9](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box9.JPG)
 
 ![box10](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box10.JPG)
 
-![box11](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box11.JPG)
+- Step 9: If you use the light-barrier: Put the IRs on the little plate I and the wall. Make sure they are exactly on the opposite of each other. 
+
+![box8](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box8.JPG)
+
+**Congrats, you are finished with building the box!**
 
 # How to Install
 ##### Dependencies
