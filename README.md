@@ -16,19 +16,19 @@ Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
 
 You have a secured web interface where you have to login to control the catfeeder:
 
-![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG)
+![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG?raw=true)
 
 Then you have a page where you can feed immediately and power on/off the training light-barrier:
 
-![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG)
+![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG?raw=true)
 
 There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:
 
-![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG)
+![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true)
 
 And of course this web-app is responsive:
 
-![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG)
+![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG?raw=true)
 
 # How does it work?
 
