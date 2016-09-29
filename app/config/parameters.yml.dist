@@ -4,8 +4,8 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     catfeeder
-    database_user:     catfeeder
+    database_name:     yourdatabasename
+    database_user:     youdatabasepassword
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
@@ -16,8 +16,8 @@ parameters:
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ydaa5_GI`K5&l~FPl4XCH89n=+'@rn
+    secret:            yoursecret
 
     # Login values --> Change this to your own!!!
-    app_user: admin
-    app_password: $2y$12$emUUPhOjq/NtOGOPMTzL0uwY71425XNiH5lu2B0USaRmAvYY6AWl.
+    app_user: yourusername
+    app_password: yourpassword
