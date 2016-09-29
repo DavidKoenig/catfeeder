@@ -159,10 +159,14 @@ First install these packages to your raspbian:
 - composer
 
 ##### Clone Repository
-Clone this repository to `/var/www/html/`. 
+Clone this repository to `/var/www/html/`. You can achieve this by directing to this folder and execute `git clone https://github.com/DavidKoenig/catfeeder.git`
 
 ##### Create database
-Create a database, e.g. *catfeeder* (you will be later asked about the name and credentials and when executing the deploy script)
+Create a database, *mydatabasename* . Please create a new user for this, that has only access to this database (security reasons), *mydatabaseuser*!
+
+You will be later asked about the name and credentials when executing the deploy script. Type your *mydatabasename* and *mydatabaseuser* with *mypassword* that you created at this step.
+
+Every information for doing this can be found here: https://wiki.debian.org/PostgreSql
 
 ##### Install project dependencies
 Run `composer install` from the root directory of the project
