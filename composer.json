@@ -29,10 +29,10 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "twbs/bootstrap": "^3.3",
         "symfony/assetic-bundle": "^2.8",
-        "components/jquery": "^2.2"
+        "components/jquery": "^2.2",
+        "sensio/generator-bundle": "^3.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },
     "scripts": {
