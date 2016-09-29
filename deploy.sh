@@ -24,9 +24,6 @@ export SYMFONY_ENV=$1
 printf "Pulling master branch...\n"
 git pull origin master
 
-printf "\n\nUpdatting database...\n"
-php bin/console doctrine:schema:update --force
-
 if [ $1 = "prod" ]
     then
         # composer install takes care of cache cleaning
@@ -39,6 +36,9 @@ if [ $1 = "prod" ]
         printf "\n\nComposer install...\n"
         composer install
 fi
+
+printf "\n\nUpdating database...\n"
+php bin/console doctrine:schema:update --force
 
 printf "\n\nBuilding new optimized class map...\n"
 composer dump-autoload --optimize
