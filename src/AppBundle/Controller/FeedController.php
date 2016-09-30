@@ -56,14 +56,14 @@ class FeedController extends Controller
 
     private function handleLightBarrier($settings, $lightBarrierActive) {
         if ($lightBarrierActive === true) {
-            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier null null null false > /dev/null &');
+            exec('sudo /var/www/html/catfeeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier null null null false > /dev/null &');
             return false;
         }
         else {
             $unitCode       = $settings->getWirelessPlugSocket()->getUnitCode();
             $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
             $duration       = $settings->getDurationPortion();
-            exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier '
+            exec('sudo /var/www/html/catfeeder/app/Resources/pi/catfeeder-sudo-script.sh lightBarrier '
                 . $channelCode .' ' . $unitCode . ' ' . $duration . ' true > /dev/null &');
             return true;
         }
@@ -73,7 +73,7 @@ class FeedController extends Controller
         $unitCode       = $settings->getWirelessPlugSocket()->getUnitCode();
         $channelCode    = $settings->getWirelessPlugSocket()->getChannelCode();
         $duration       = $settings->getDurationPortion();
-        exec('sudo /var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh feed '
+        exec('sudo /var/www/html/catfeeder/app/Resources/pi/catfeeder-sudo-script.sh feed '
             . $channelCode .' ' . $unitCode . ' ' . $duration . ' null > /dev/null');
     }
 
