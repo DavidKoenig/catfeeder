@@ -12,14 +12,14 @@
 ### feed part ###
 if [ $1 = "feed" ]
     then
-        python /var/www/html/cat-feeder/app/Resources/pi/feed.py $2 $3 $4
+        python /var/www/html/catfeeder/app/Resources/pi/feed.py $2 $3 $4
 ### light barrier part ###
 elif [ $1 = "lightBarrier" ]
     then
         # if true, then python script shall be activated, if it is false it should be killed and process id's should be given as arguments
         if [ $5 = "true" ]
             then
-                python /var/www/html/cat-feeder/app/Resources/pi/light-barrier.py $2 $3 $4 &
+                python /var/www/html/catfeeder/app/Resources/pi/light-barrier.py $2 $3 $4 &
         fi
 
         if [ $5 = "false" ]
