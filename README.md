@@ -189,7 +189,7 @@ To do so run the following:
     
 for executable right and
  
-    sudo chown www-data:pi feed.py light-barrier.py send catfeeder-sudo-script.sh
+    sudo chown pi:www-data feed.py light-barrier.py send catfeeder-sudo-script.sh
 
 Further you have to add the user *pi* to *www-data* with 
 
