@@ -204,7 +204,7 @@ If there goes something wrong with cache cleaning when running `composer install
 ## Deploy
 You have to do the following steps to deploy the:
 
-- create a file named `catfeeder.conf` in `/etc/apache2/conf-available` and write the following in it:
+- create a file named `catfeeder.conf` in `/etc/apache2/sites-available` and write the following in it:
     
 ```
     Alias /catfeeder "/var/www/html/catfeeder/web/"
@@ -223,12 +223,15 @@ Execute the deploy script with
     
     bash /var/www/html/catfeeder/delpoy.sh prod.
 You will be asked about several configurations:
-- database settings --> change database password to the your own. Don't use default!
-- your can ignore the mailer settings, just hit enter to use default
-- login name and password
-    * use bcrypt to encode you password with `php bin/console security:encode-password` (use another terminal)
-    * paste the generated password to the prompt
-    * change your token secret, don't use default!
+- database settings - change database password to the your own you set in step "Create Database"
+- mailer settings - can be ignored, just hit enter
+- secret - don't use default! Generate your own with e.g. http://passwordsgenerator.net/ (use a long one, e.g. 30 chars)
+- login name - choose login name for entering into the app 
+- password - because symfony uses the secret you set above which is written in a file that's generated after config questions, you have to this first
+
+After finishing the deploy script, you have to change your password.
+* use bcrypt to encode you password with `php bin/console security:encode-password` 
+* paste the generated password to `app/config/parameters.yml` under `app_password`
 
 #### That's it you are finished installing the application!
 If you want to use the catfeeder outside you local network (from the internet), you have to create your own ssl
