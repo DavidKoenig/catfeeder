@@ -237,12 +237,16 @@ If you use the light-barrier also place a hole on head between the wall and the 
 <h5>
 <a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h5>
 
-<p>Clone this repository to <code>/var/www/html/</code>. </p>
+<p>Clone this repository to <code>/var/www/html/</code>. You can achieve this by directing to this folder and execute <code>git clone https://github.com/DavidKoenig/catfeeder.git</code></p>
 
 <h5>
 <a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h5>
 
-<p>Create a database, e.g. <em>catfeeder</em> (you will be later asked about the name and credentials and when executing the deploy script)</p>
+<p>Create a database, <em>mydatabasename</em> . Please create a new user for this, that has only access to this database (security reasons), <em>mydatabaseuser</em>!</p>
+
+<p>You will be later asked about the name and credentials when executing the deploy script. Type your <em>mydatabasename</em> and <em>mydatabaseuser</em> with <em>mypassword</em> that you created at this step.</p>
+
+<p>Every information for doing this can be found here: <a href="https://wiki.debian.org/PostgreSql">https://wiki.debian.org/PostgreSql</a></p>
 
 <h5>
 <a id="install-project-dependencies" class="anchor" href="#install-project-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install project dependencies</h5>
@@ -275,7 +279,7 @@ To do so run the following: </p>
 
 <p>for executable right and</p>
 
-<pre><code>sudo chown www-data:pi feed.py light-barrier.py send catfeeder-sudo-script.sh
+<pre><code>sudo chown pi:www-data feed.py light-barrier.py send catfeeder-sudo-script.sh
 </code></pre>
 
 <p>Further you have to add the user <em>pi</em> to <em>www-data</em> with </p>
@@ -304,7 +308,7 @@ To do so run the following: </p>
 <p>You have to do the following steps to deploy the:</p>
 
 <ul>
-<li>create a file named <code>catfeeder.conf</code> in <code>/etc/apache2/conf-available</code> and write the following in it:</li>
+<li>create a file named <code>catfeeder.conf</code> in <code>/etc/apache2/sites-available</code> and write the following in it:</li>
 </ul>
 
 <pre><code>    Alias /catfeeder "/var/www/html/catfeeder/web/"
@@ -332,15 +336,18 @@ To do so run the following: </p>
 <p>You will be asked about several configurations:</p>
 
 <ul>
-<li>database settings --&gt; change database password to the your own. Don't use default!</li>
-<li>your can ignore the mailer settings, just hit enter to use default</li>
-<li>login name and password
+<li>database settings - change database password to the your own you set in step "Create Database"</li>
+<li>mailer settings - can be ignored, just hit enter</li>
+<li>secret - don't use default! Generate your own with e.g. <a href="http://passwordsgenerator.net/">http://passwordsgenerator.net/</a> (use a long one, e.g. 30 chars)</li>
+<li>login name - choose login name for entering into the app </li>
+<li>password - because symfony uses the secret you set above which is written in a file that's generated after config questions, you have to this first</li>
+</ul>
+
+<p>After finishing the deploy script, you have to change your password.</p>
 
 <ul>
-<li>use bcrypt to encode you password with <code>php bin/console security:encode-password</code> (use another terminal)</li>
-<li>paste the generated password to the prompt</li>
-<li>change your token secret, don't use default!</li>
-</ul>
+<li>use bcrypt to encode you password with <code>php bin/console security:encode-password</code> </li>
+<li>paste the generated password to <code>app/config/parameters.yml</code> under <code>app_password</code>
 </li>
 </ul>
 
