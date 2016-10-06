@@ -38,13 +38,8 @@ on and off in a time that you can control via the web interface, so that you can
 hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
 a textile mouse, to get food reward.
 
-
-
-The total amount is about 100€ (in Germany) including the wood box, depending on your country's prices.
-
 # How to build
 ## Electronics
-
 ### What do you need?
 
 - a Raspberry Pi - I reference in this tutorial to the Raspberry Pi B+
@@ -58,6 +53,8 @@ The total amount is about 100€ (in Germany) including the wood box, depending 
 - a IR emitting and receiving diode
 - two 470 Ohm resistor
 - one 10k Ohm resistor
+
+The total amount is about 100€ (in Germany) including the wood box, depending on your country's prices.
 
 ### Wiring diagram
 
