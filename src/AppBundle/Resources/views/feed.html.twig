@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-xs-5">
+        <div class="col-xs-12 col-sm-6">
             <h3>Feed a Portion or two...</h3>
             {{ form_start(feedForm) }}
             {# You have to call the form with the dummy field here, otherwise it's not submitted #}
@@ -12,7 +12,7 @@
             </button>
             {{ form_end(feedForm, {'render_rest': false}) }}
         </div>
-        <div class="col-xs-7">
+        <div class="col-xs-12 col-sm-6">
 	    <h3>Activate or deactivate the Training Hole</h3>
 	    {{ form_start(barrierForm) }}
 	        <div class="hidden">{{ form_widget(barrierForm) }}</div>
