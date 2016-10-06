@@ -38,7 +38,14 @@ on and off in a time that you can control via the web interface, so that you can
 hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
 a textile mouse, to get food reward.
 
-# What do you need?
+
+
+The total amount is about 100€ (in Germany) including the wood box, depending on your country's prices.
+
+# How to build
+## Electronics
+
+### What do you need?
 
 - a Raspberry Pi - I reference in this tutorial to the Raspberry Pi B+
 - a simple meet chopper, where you can remove the blades
@@ -46,16 +53,11 @@ a textile mouse, to get food reward.
 - a wireless socket, where you can set the unit and channel code by your own
 - jumper cables
 
-### For the light barrier
+#### For the light barrier
 - a breadboard
 - a IR emitting and receiving diode
 - two 470 Ohm resistor
 - one 10k Ohm resistor
-
-The total amount is about 100€ (in Germany), depending on your country's prices.
-
-# How to build
-## Electronic stuff
 
 ### Wiring diagram
 
@@ -83,7 +85,7 @@ a little bit up to place a slide outwards on the box. But I rejected this idea b
 put the cable stuff and Pi under it. You don't need to build this raised floor for construction reasons (then you can build the box a little 
 less higher) - do as you want. If you don't want to use the light-barrier / training hole you can also build the box smaller - just adjust it to your meat chopper.
 
-You need these things:
+### What do you need?
 - 4 side plates with
     - A: 2 of them have a little bit more width than the meat chopper has depth [for mine 38cm]
     - B: the other 2 having the width of A minus the their thickness (together) [for mine 35,4cm]
