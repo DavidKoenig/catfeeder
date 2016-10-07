@@ -1,6 +1,6 @@
 catfeeder
 =========
-Software for an automatic web-controlled cat feeder built with RaspberryPi. 
+Software and tutorial for an automatic web-controlled cat feeder built with RaspberryPi. 
 
 # What is this and why?
 Some cat owners (mostly with flat-only cats) know the problem: You are one or two days not at home. 
@@ -8,9 +8,28 @@ Your cat has enough water, enough toilets with sand filled, etc., but when your 
 In many countries you just get a programmable cat feeder with day and time setting, but you get no chance to connect it 
 anywhere and build your own interface.
 
-This is a tutorial with software how to build your own automatic cat feeder controlled via a web interface.
-It is build with simple materials/ stuff that is simple available and cheap. You will need a little understand in electronic circuits,
-Raspberry Pi and manual work. In other words, you need a leaning to be a maker.
+This is a tutorial how to build your own automatic cat feeder controlled via a web interface.
+It is build with simple materials you can easily get. You will need a little understand in electronic circuits,
+Raspberry Pi and manual work. 
+
+# How does it work?
+
+This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
+The meat chopper is plugged in a wireless socket which gets controlled by a Raspberry Pi. The Pi sets the wireless socket
+on and off in a time that you can control via the web interface, so that you can portioning it. In the box there is a
+hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
+a textile mouse, to get food reward.
+
+## See it in action
+
+* give food with a button click from the smartphone
+
+![feed gif](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.gif?raw=true)
+
+* give food when something is dropped into the hole
+
+![light-barrier gif](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/light-barrier.gif?raw=true)
+
 
 ## The web interface
 
@@ -29,14 +48,6 @@ There is also a control center where you can configure your wireless socket and 
 And of course this web-app is responsive:
 
 ![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG?raw=true)
-
-# How does it work?
-
-This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
-The meat chopper is plugged in a wireless socket which gets controlled by a Raspberry Pi. The Pi sets the wireless socket
-on and off in a time that you can control via the web interface, so that you can portioning it. In the box there is a
-hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
-a textile mouse, to get food reward.
 
 # How to build
 ## Electronics
