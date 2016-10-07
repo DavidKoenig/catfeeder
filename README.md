@@ -11,6 +11,8 @@ anywhere and build your own interface.
 This is a software (and tutorial - see link below) for your own automatic cat feeder which you can control over a secured webinterface.
 If you make it accessible from outside you can feed your cat from everywhere when you are not at home.
 
+#### Visit https://davidkoenig.github.io/catfeeder/ for detailed installing and building tutorial
+
 # How does it work?
 
 This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
@@ -25,5 +27,8 @@ a textile mouse, to get food reward.
 
 ![feed gif](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.gif?raw=true)
 
-#### Visit https://davidkoenig.github.io/catfeeder/ for detailed installing and building tutorial
+# LICENSE
+MIT - please see LICENSE file for full information.
 
+# Contribute
+Please feel free to send me a pull request! 
