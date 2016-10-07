@@ -30,6 +30,9 @@ if [ $1 = "prod" ]
         printf "\n\nComposer install...\n"
         composer install --no-dev --optimize-autoloader
 
+        printf "\n\Install assets...\n"
+        php bin/console assets:install
+
         printf "\n\Dump assetic...\n"
         php bin/console assetic:dump --env=prod --no-debug
     else
