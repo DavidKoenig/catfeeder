@@ -39,15 +39,15 @@ You have a secured web interface where you have to login to control the catfeede
 
 Then you have a page where you can feed immediately and power on/off the training light-barrier:
 
-![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG?raw=true)
+![feed](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG?raw=true =250x)
 
 There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:
 
-![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true)
+![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true =250x)
 
 And of course this web-app is responsive:
 
-![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG?raw=true)
+![responsive](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/responsive.JPG?raw=true =250x)
 
 # How to build
 ## Electronics
@@ -69,7 +69,7 @@ The total amount is about 100€ (in Germany) including the wood box, depending 
 
 ### Wiring diagram
 
-![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.JPG?raw=true)
+![wiring-diagram](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/wiring-diagram.JPG?raw=true =450x)
 
 ####Legend
 - red: +
@@ -110,52 +110,52 @@ The steps to build are the following:
 - Step 1: Screw the plates A and B with the brackets D together as you can see in picture 1 and 2
 (don't mind my additional silver brackets in the picture - I used it because one plate was not 100% straight).
 
-![box1](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box1.JPG?raw=true)
+![box1](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box1.JPG?raw=true =300x)
 
 As you can see my box is a square in the width and a rectangle in the height.
 
-![box2](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box2.JPG?raw=true)
+![box2](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box2.JPG?raw=true =300x)
 
 - Step 2: Screw on the bottom plate C(b) with G
 
-![box3](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box3.JPG?raw=true)
+![box3](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box3.JPG?raw=true =300x)
 
 - Step 3 (additional): Place the raised floor H(a) with two brackets D and the square timber H(b) with one G    
 
-![box4](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box4.JPG?raw=true)
+![box4](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box4.JPG?raw=true =300x)
 
-![box5](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box5.JPG?raw=true)
+![box5](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box5.JPG?raw=true =300x)
 
 - Step 4: Apply the head plate C(a) with the hinge E and some screws F
 
-![box6](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box6.JPG?raw=true)
+![box6](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box6.JPG?raw=true =300x)
 
 - Step 5: If you don't use the light-barrier skip this step. Place the little plate I with 1 bracket D and F about 10cm 
 away from the wall and 10cm from the top (the space to the top is necessary to avoid detection errors because of incident light, 
 the space between wall and plate to let the cat toy fall through). 
 
-![box7](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box7.JPG?raw=true)
+![box7](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box7.JPG?raw=true =300x)
 
 - Step 6: Measure where the outgoing of the meat chopper from the bottom is and place a hole in box at this position [for mine about 4cm diameter and 28cm high]. 
 If you use the light-barrier also place a hole on head between the wall and the plate you attached in Step 5. 
 
-![box12](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box12.JPG?raw=true)
+![box12](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box12.JPG?raw=true =300x)
 
-![box13](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box13.JPG?raw=true)
+![box13](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box13.JPG?raw=true =300x)
 
 - Step 7: Place a hole at the back bottom of the box to put the power cable through. 
 
-![box14](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG?raw=true)
+![box14](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG?raw=true =300x)
 
 - Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box. Place the meat chopper.
 
-![box9](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box9.JPG?raw=true)
+![box9](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box9.JPG?raw=true =300x)
 
-![box10](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box10.JPG?raw=true)
+![box10](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box10.JPG?raw=true =300x)
 
 - Step 9: If you use the light-barrier: Put the IRs on the little plate I and the wall. Make sure they are exactly on the opposite of each other. 
 
-![box8](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box8.JPG?raw=true)
+![box8](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box8.JPG?raw=true =300x)
 
 **Congrats, you are finished with building the box!**
 
