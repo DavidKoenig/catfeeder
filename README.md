@@ -43,7 +43,8 @@ Then you have a page where you can feed immediately and power on/off the trainin
 
 There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:
 
-![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true){:height="36px" width="36px"}.
+![settings](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true)
+<img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/settings.JPG?raw=true" style="width: 50%;">
 
 And of course this web-app is responsive:
 
