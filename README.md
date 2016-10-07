@@ -35,7 +35,7 @@ a textile mouse, to get food reward.
 
 You have a secured web interface where you have to login to control the catfeeder:
 
-![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG?raw=true)
+![login](https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG?raw=true =250x)
 
 Then you have a page where you can feed immediately and power on/off the training light-barrier:
 
