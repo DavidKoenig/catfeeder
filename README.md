@@ -1,6 +1,6 @@
 catfeeder
 =========
-Software and tutorial for an automatic web-controlled catfeeder built with RaspberryPi. 
+Software and tutorial for building your own automatic web-controlled catfeeder built with the RaspberryPi. 
 
 # What is this and why?
 Some cat owners (mostly with flat-only cats) know the problem: You are one or two days not at home. 
