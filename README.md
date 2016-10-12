@@ -236,7 +236,7 @@ You have to do the following steps to deploy the:
 
 Execute the deploy script with 
     
-    bash /var/www/html/catfeeder/delpoy.sh prod.
+    bash /var/www/html/catfeeder/delpoy.sh prod
 You will be asked about several configurations:
 - database settings - change database password to the your own you set in step "Create Database"
 - mailer settings - can be ignored, just hit enter
