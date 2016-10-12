@@ -22,27 +22,28 @@
       <h1>
 <a id="catfeeder" class="anchor" href="#catfeeder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>catfeeder</h1>
 
-<p>Software and tutorial for building your own an automatic web-controlled cat feeder with the RaspberryPi. </p>
+<p>Software and tutorial for building your own automatic web-controlled catfeeder built with the RaspberryPi. </p>
 
 <h1>
 <a id="what-is-this-and-why" class="anchor" href="#what-is-this-and-why" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is this and why?</h1>
 
 <p>Some cat owners (mostly with flat-only cats) know the problem: You are one or two days not at home. 
 Your cat has enough water, enough toilets with sand filled, etc., but when your cat sees food it will eat it immediately. 
-In many countries you just get a programmable cat feeder with day and time setting, but you get no chance to connect it 
+In many countries you just get a programmable catfeeder with day and time setting, but you get no chance to connect it 
 anywhere and build your own interface.</p>
 
-<p>This is a tutorial how to build your own automatic cat feeder controlled via a web interface.
+<p>This is a tutorial, with provided software (as it is and without any guaranty), on how to build your own automatic catfeeder controlled via a web interface.
 It is build with simple materials you can easily get. You will need a little understand in electronic circuits,
-Raspberry Pi and manual work. </p>
+Raspberry Pi and manual work. 
+It will first give you a suggestion on how to build a box where you place your catfeeder and then the installing instructions on how to set the software up.</p>
 
 <h1>
 <a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does it work?</h1>
 
-<p>This cat feeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
+<p>This catfeeder is located in a self-made wood-box and in it is a meat chopper without blades, that holds dry food for cats.
 The meat chopper is plugged in a wireless socket which gets controlled by a Raspberry Pi. The Pi sets the wireless socket
 on and off in a time that you can control via the web interface, so that you can portioning it. In the box there is a
-hole where the food drops out. If you install the light barrier there is another hole where the cat can put something in, e.g. 
+hole where the food drops out. If you install the light-barrier there is another hole where the cat can put something in, e.g. 
 a textile mouse, to get food reward.</p>
 
 <h2>
@@ -63,13 +64,13 @@ a textile mouse, to get food reward.</p>
 <h2>
 <a id="the-web-interface" class="anchor" href="#the-web-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The web interface</h2>
 
-<p>You have a secured web interface where you have to login to control the catfeeder:</p>
+<p>There is a secured web interface where you have to login to control the catfeeder:</p>
 
-<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG?raw=true" alt="login"></p>
+<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/login.JPG?raw=true%20=250x" alt="login"></p>
 
-<p>Then you have a page where you can feed immediately and power on/off the training light-barrier:</p>
+<p>Then ther is a page where you can feed immediately and power on/off the training hole controlled by the light-barrier:</p>
 
-<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG?raw=true" alt="feed"></p>
+<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/feed.JPG?raw=true%20=250x" alt="feed"></p>
 
 <p>There is also a control center where you can configure your wireless socket and the time settings for the portions of one feed unit:</p>
 
@@ -97,7 +98,7 @@ a textile mouse, to get food reward.</p>
 </ul>
 
 <h4>
-<a id="for-the-light-barrier" class="anchor" href="#for-the-light-barrier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For the light barrier</h4>
+<a id="for-the-light-barrier" class="anchor" href="#for-the-light-barrier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For the light-barrier</h4>
 
 <ul>
 <li>a breadboard</li>
@@ -124,17 +125,19 @@ a textile mouse, to get food reward.</p>
 <li>pin 18: data of the IR receiver</li>
 </ul>
 
-<p>The 433MHz transmitter (in the left) is symbolic as text and symbolic on the breadboard. You should connect it
+<p>The 433MHz transmitter (in the left) is symbolic as text on the breadboard. You should connect it
 directly to the Pi via jumper cables.</p>
 
-<p>If you just want the feed function without light barrier, you only have to connect the 433MHz transmitter.
-For using the light barrier function connect also the stuff on the right side of the breadboard as shown in the wiring plan. </p>
+<p>If you just want the feed function without light-barrier, you only have to connect the 433MHz transmitter.
+For using the light-barrier function connect also the stuff on the right side of the breadboard as shown in the wiring plan. </p>
+
+<p>After you checked that everything works fine, enlarge the two IR diodes with jumper cables to place it later in the wood box.</p>
 
 <h2>
 <a id="wood-box" class="anchor" href="#wood-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wood box</h2>
 
-<p>This is an example of how to build a wooden box, that keeps the meet-chopper, pi, wireless socket, etc. in it.
-The wood box is a little bit larger than the meet chopper - the dimensions are attached to the one I bought.
+<p>This is an example of how to build a wooden box, that keeps the meet chopper, Pi, wireless socket, etc. in it.
+The wood box is a little bit larger than the meet chopper - the dimensions are attached to the one I bought and should only give you a hint and feelings for the ratio.
 As you can see in the pictures, I have put a raised floor into the box - this is not a must. Initially I wanted to bring the meet chopper 
 a little bit up to place a slide outwards on the box. But I rejected this idea because it works also nice without a slide. Now it's used to 
 put the cable stuff and Pi under it. You don't need to build this raised floor for construction reasons (then you can build the box a little 
@@ -156,7 +159,7 @@ less higher) - do as you want. If you don't want to use the light-barrier / trai
 <li>E: 2 hinge</li>
 <li>F: some screws (maybe 30), that are not longer than the thickness of A, B and C [for mine 1,8cm]</li>
 <li>G: some screws (4 to 5) that are about the double longer than F</li>
-<li>H: if you want to build the raised floor: 1 plate (a) that can carry the meat chopper [for mine 23cm x 35,4cm] and a little square timber (b) [for mine about 10cm high]</li>
+<li>H: if you want to build the raised floor: 1 plate (a) that can carry the meat chopper [for mine 23cm x 35,4cm], 2 more brackets and a little square timber (b) [for mine about 10cm high]</li>
 <li>I: 1 little plate about 5cm x 5cm to place one IR of the light-barrier<br>
 </li>
 </ul>
@@ -168,7 +171,7 @@ less higher) - do as you want. If you don't want to use the light-barrier / trai
 (don't mind my additional silver brackets in the picture - I used it because one plate was not 100% straight).</li>
 </ul>
 
-<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box1.JPG?raw=true" alt="box1"></p>
+<p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box1.JPG?raw=true%20=300x" alt="box1"></p>
 
 <p>As you can see my box is a square in the width and a rectangle in the height.</p>
 
@@ -198,7 +201,7 @@ less higher) - do as you want. If you don't want to use the light-barrier / trai
 <ul>
 <li>Step 5: If you don't use the light-barrier skip this step. Place the little plate I with 1 bracket D and F about 10cm 
 away from the wall and 10cm from the top (the space to the top is necessary to avoid detection errors because of incident light, 
-the space between wall and plate to let the cat toy fall through). </li>
+the space between wall and plate to let the cat toy fall through and give an accurate detection result). </li>
 </ul>
 
 <p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box7.JPG?raw=true" alt="box7"></p>
@@ -219,7 +222,9 @@ If you use the light-barrier also place a hole on head between the wall and the 
 <p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box14.JPG?raw=true" alt="box14"></p>
 
 <ul>
-<li>Step 8: Put a outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box. Place the meat chopper.</li>
+<li>Step 8: Put an outlet manifold (at least 2 sockets), the wireless socket and the Pi with everything attached on it in the box. 
+Place the meat chopper. Make sure that the outgoing is placed correct to the hole and if you have a little space between the hole and the chopper, put silicone between.
+Also ensure, that the meat chopper can't move backward or forward (ensure it sticks).</li>
 </ul>
 
 <p><img src="https://github.com/DavidKoenig/catfeeder/blob/gh-pages/images/box9.JPG?raw=true" alt="box9"></p>
@@ -237,8 +242,8 @@ If you use the light-barrier also place a hole on head between the wall and the 
 <h1>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Install</h1>
 
-<h5>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h5>
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <p>First install these packages to your raspbian:</p>
 
@@ -250,13 +255,13 @@ If you use the light-barrier also place a hole on head between the wall and the 
 <li>composer</li>
 </ul>
 
-<h5>
-<a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h5>
+<h2>
+<a id="clone-repository" class="anchor" href="#clone-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clone Repository</h2>
 
 <p>Clone this repository to <code>/var/www/html/</code>. You can achieve this by directing to this folder and execute <code>git clone https://github.com/DavidKoenig/catfeeder.git</code></p>
 
-<h5>
-<a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h5>
+<h2>
+<a id="create-database" class="anchor" href="#create-database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create database</h2>
 
 <p>Create a database, <em>mydatabasename</em> . Please create a new user for this, that has only access to this database (security reasons), <em>mydatabaseuser</em>!</p>
 
@@ -264,16 +269,16 @@ If you use the light-barrier also place a hole on head between the wall and the 
 
 <p>Every information for doing this can be found here: <a href="https://wiki.debian.org/PostgreSql">https://wiki.debian.org/PostgreSql</a></p>
 
-<h5>
-<a id="install-project-dependencies" class="anchor" href="#install-project-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install project dependencies</h5>
+<h2>
+<a id="install-project-dependencies" class="anchor" href="#install-project-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install project dependencies</h2>
 
 <p>Run <code>composer install</code> from the root directory of the project</p>
 
 <h2>
 <a id="set-permissions" class="anchor" href="#set-permissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set permissions</h2>
 
-<h5>
-<a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash script</h5>
+<h3>
+<a id="bash-script" class="anchor" href="#bash-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bash script</h3>
 
 <p>Because of the usage of the <a href="https://github.com/xkonni/raspberry-remote.git">Raspberry Pi Remote library</a> the python scripts in this project need sudo rights. 
 But don't be afraid, it's all wrapped in a single bash script on which <em>www-data</em> has access and the command for executing this script is hardcoded. 
@@ -284,8 +289,8 @@ But we need to make it accessible for <em>www-data</em>.</p>
 <pre><code>www-data ALL=NOPASSWD:/var/www/html/cat-feeder/app/Resources/pi/catfeeder-sudo-script.sh
 </code></pre>
 
-<h5>
-<a id="python-scripts" class="anchor" href="#python-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python scripts</h5>
+<h3>
+<a id="python-scripts" class="anchor" href="#python-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python scripts</h3>
 
 <p>Please make sure, that the scripts in the folder <em>app/Resources/pi/</em> are all executable and belong to the user pi and the www-data group
 To do so run the following: </p>
@@ -303,8 +308,8 @@ To do so run the following: </p>
 <pre><code>sudo usermod -a -G www-data pi
 </code></pre>
 
-<h5>
-<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h5>
+<h3>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h3>
 
 <p>If there goes something wrong with cache cleaning when running <code>composer install</code> (it will be mentioned when the error occurs) set the permissions for cache, logs and sessions folder as following (first go to the <em>var</em> folder of the project):</p>
 
@@ -370,9 +375,18 @@ To do so run the following: </p>
 <h4>
 <a id="thats-it-you-are-finished-installing-the-application" class="anchor" href="#thats-it-you-are-finished-installing-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>That's it you are finished installing the application!</h4>
 
-<p>If you want to use the catfeeder outside you local network (from the internet), you have to create your own ssl
-certificate, make port forwarding to the IP of your Pi (on the router) and use a dyndns service to attach it to a domain.
-These are just hints, I will not provide a tutorial for this, there are enough to find on the search engine of your choice ;-)</p>
+<h2>
+<a id="what-else-to-do" class="anchor" href="#what-else-to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What else to do?</h2>
+
+<p>If you want to use the catfeeder outside you local network (from the internet), you have to </p>
+
+<ul>
+<li>create your own ssl certificate (I recommend you this tutorial: <a href="https://wiki.ubuntuusers.de/Apache/SSL/">https://wiki.ubuntuusers.de/Apache/SSL/</a> )</li>
+<li>do a port forwarding to the IP of your Pi (on the router and ensure the Pi has or gets always the same IP) </li>
+<li>and use a dyndns service to attach it to a domain.</li>
+</ul>
+
+<p>These are just hints, I will not provide a tutorial for this, there are enough to find with the search engine of your choice ;-)</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/DavidKoenig/catfeeder">catfeeder</a> is maintained by <a href="https://github.com/DavidKoenig">DavidKoenig</a>.</span>
